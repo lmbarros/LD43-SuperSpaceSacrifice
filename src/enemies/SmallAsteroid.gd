@@ -13,3 +13,8 @@ func _ready():
 func _process(delta):
 	rotation += angularSpeed * delta
 
+
+
+func die():
+	queue_free()
+	TheSound.smallExplosion()

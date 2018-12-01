@@ -31,6 +31,7 @@ func _onBodyEntered(body):
 
 
 func hitByBullet(bullet):
+	TheSound.hit()
 	health -= bullet.damage
 	if health <= 0:
 		die()

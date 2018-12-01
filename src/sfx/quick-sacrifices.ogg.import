@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/quick-sacrifices.ogg-d78e3f392544b3403f2f4311788840d4.oggstr"
+
+[deps]
+
+source_file="res://sfx/quick-sacrifices.ogg"
+dest_files=[ "res://.import/quick-sacrifices.ogg-d78e3f392544b3403f2f4311788840d4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

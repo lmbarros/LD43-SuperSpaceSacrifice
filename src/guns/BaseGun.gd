@@ -21,10 +21,16 @@ func update(delta):
 
 
 
+func playSound():
+	pass # override in subclasses, please
+
+
+
 func fire(scene, globalPos):
 	if canFireInSecs > 0.0:
 		return false
 	
+	playSound()
 	canFireInSecs = cooldown
 
 	var proj = bullet.instance()

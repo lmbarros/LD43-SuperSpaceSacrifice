@@ -53,4 +53,5 @@ func doFire():
 func checkHealth():
 	if ThePlayer.health < 0:
 		queue_free()
+		TheSound.mediumExplosion()
 		emit_signal("died")

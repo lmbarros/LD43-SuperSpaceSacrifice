@@ -6,3 +6,8 @@ func _init():
 	cooldown = 0.35
 	bullet = TheBullets.SmallLaser
 	icon = null # image representing the gun
+
+
+
+func playSound():
+	TheSound.smallLaser()

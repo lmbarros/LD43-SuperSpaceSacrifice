@@ -21,6 +21,7 @@ TheGuns="*res://guns/TheGuns.gd"
 TheBullets="*res://bullets/TheBullets.gd"
 TheEnemies="*res://enemies/TheEnemies.gd"
 ThePlayer="*res://player/ThePlayer.gd"
+TheSound="*res://sfx/TheSound.tscn"
 
 [display]
 

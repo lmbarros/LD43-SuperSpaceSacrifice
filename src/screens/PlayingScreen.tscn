@@ -26,7 +26,7 @@ extents = Vector2( 10, 371.622 )
 custom_solver_bias = 0.0
 extents = Vector2( 18.2002, 374 )
 
-[node name="PlayingScreen" type="Node2D" index="0"]
+[node name="PlayingScreen" type="Node2D"]
 
 script = ExtResource( 1 )
 

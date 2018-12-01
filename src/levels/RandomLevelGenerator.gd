@@ -23,7 +23,6 @@ func _process(delta):
 
 	nextEnemyInSecs = enemySpawnPeriod
 
-	print("spawn!")
 	var enemy = TheEnemies.SmallAsteroid.instance()
 	get_tree().current_scene.add_child(enemy)
 	enemy.position = Vector2(1300, rand_range(20, 700))

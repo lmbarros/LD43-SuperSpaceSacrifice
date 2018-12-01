@@ -75,4 +75,5 @@ func fireBombBay(pos):
 
 
 func crashedWithEnemy(damage):
+	TheSound.crash()
 	health -= damage
