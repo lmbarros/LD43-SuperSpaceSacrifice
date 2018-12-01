@@ -7,5 +7,6 @@
 [node name="PlayerShip" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 682.825, 331.615 )
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 
 

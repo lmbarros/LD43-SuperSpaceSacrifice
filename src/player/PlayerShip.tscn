@@ -7,9 +7,10 @@
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 58
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -17,6 +18,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -26.9057, 10.8257, 28.7658, 9.66592, 11.1365, -1.9323, -17.975, -12.1387, -27.6016, -11.9068 )
 
@@ -36,7 +38,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -24.9393, -0.75762 )
 
-[node name="Downward" type="Position2D" parent="GunSlots" index="3"]
+[node name="BombBay" type="Position2D" parent="GunSlots" index="3"]
 
 position = Vector2( -5.2673, 10.2679 )
 
