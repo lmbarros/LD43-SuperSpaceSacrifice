@@ -8,6 +8,7 @@ License is GPL3.
 
 * Engine: [Godot](http://godotengine.org) 3.0.6.
 * Font: [Orbitron](https://www.theleagueofmoveabletype.com/orbitron), by [Matt McInerney](http://pixelspread.com), [SIL Open Font License 1.1](orbitron-font-license.md).
+* Graphics made with [Krita](https://krita.org).
 
 ## Notes to self
 
