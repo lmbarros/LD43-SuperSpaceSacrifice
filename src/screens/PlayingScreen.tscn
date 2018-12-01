@@ -82,7 +82,7 @@ collision_mask = 2
 [node name="PlayerDiedTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 5.0
+wait_time = 3.5
 one_shot = true
 autostart = false
 

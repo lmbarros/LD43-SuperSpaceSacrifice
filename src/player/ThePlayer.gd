@@ -1,10 +1,10 @@
 extends Node
 
 # Player speed, in pixels/second
-var speed = 150
+var speed = 0
 
 # Health; game over if zero
-var health = 10
+var health = 0
 
 
 # Bullets are added here
@@ -17,8 +17,10 @@ var gunBackward = null
 var gunBombBay = null
 
 
-
-func _ready():
+func init():
+	speed = 150
+	health = 10
+	
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.setFireAngleInRad(0)
 

@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="LD43: Super Space Sacrifice"
-run/main_scene="res://screens/PlayingScreen.tscn"
+run/main_scene="res://screens/TitleScreen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 

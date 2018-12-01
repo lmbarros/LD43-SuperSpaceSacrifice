@@ -8,5 +8,4 @@ func _onPlayerDied():
 
 
 func _onPlayerDiedTimerTimeout():
-	var gameOverScreen = preload("res://screens/GameOverScreen.tscn")
-	get_tree().change_scene_to(gameOverScreen)
+	get_tree().change_scene("res://screens/GameOverScreen.tscn")
