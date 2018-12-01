@@ -32,8 +32,6 @@ func _onAreaEntered(area):
 func hitByBullet(bullet):
 	TheSound.hit()
 	health -= bullet.damage
-	if health <= 0:
-		die()
 	bullet.queue_free()
 
 
