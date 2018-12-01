@@ -13,6 +13,7 @@ config_version=3
 config/name="LD43: Super Space Sacrifice"
 run/main_scene="res://screens/TitleScreen.tscn"
 boot_splash/image="res://splash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -27,6 +28,8 @@ TheSound="*res://sfx/TheSound.tscn"
 
 window/size/width=1270
 window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 
