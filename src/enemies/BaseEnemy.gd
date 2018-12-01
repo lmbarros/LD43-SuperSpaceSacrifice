@@ -13,8 +13,7 @@ var speed = 200 # in pixels/sec
 func _process(delta):
 	if _isOutOfBounds():
 		queue_free()
-	moveLeft(delta)
-
+	checkHealth()
 
 
 func _onAreaEntered(area):
@@ -40,7 +39,7 @@ func hitByBullet(bullet):
 
 
 func crashedWithThePlayer(player):
-	die()
+	health -= ThePlayer.crashDamage
 
 
 
@@ -55,5 +54,6 @@ func _isOutOfBounds():
 
 
 
-func moveLeft(delta):
-	position.x -= speed * delta
+func checkHealth():
+	if health <= 0:
+		die()

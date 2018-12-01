@@ -39,10 +39,11 @@ func _ready():
 
 
 func _process(delta):
+	._process(delta) # call super
+
 	time += delta
-	if _isOutOfBounds():
-		queue_free()
-	moveLeft(delta)
+
+	position.x -= speed * delta
 	position.y = baseY + sin(time * oscillationMultiplier) * deltaY
 
 	shootInSecs -= delta

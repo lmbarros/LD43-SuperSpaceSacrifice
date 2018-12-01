@@ -15,6 +15,8 @@ func _ready():
 
 
 func _process(delta):
+	._process(delta)  # call super
+	position.x -= speed * delta
 	rotation += angularSpeed * delta
 
 

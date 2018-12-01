@@ -6,9 +6,12 @@ var speed = 0
 # Health; game over if zero
 var health = 0
 
-
 # Bullets are added here
 var bulletsRoot = null
+
+# Player causes this amount of damage when crashing with enemies
+var crashDamage = 20
+
 
 # The guns
 var gunForward1 = null
