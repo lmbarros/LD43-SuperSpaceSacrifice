@@ -1,20 +1,13 @@
 extends Node2D
 
 
-var gunForward1 = null
-var gunForward2 = null
-var gunBackward = null
-var gunBombBay = null
-
-
-
 func _ready():
-	gunForward1 = TheWeapons.CheapLaser.new()
+	ThePlayer.projectilesRoot = get_tree().current_scene
 
 
 
 func _process(delta):
-	updateSubsystems(delta)
+	ThePlayer.updateSubsystems(delta)
 	doMovement(delta)
 	doFire()
 
@@ -40,21 +33,12 @@ func doMovement(delta):
 
 
 func doFire():
-	var scene = get_tree().current_scene
-	if Input.is_action_pressed("fire_forward_1") && gunForward1 != null:
-		gunForward1.fire(scene, $GunSlots/Forward1.global_position, 0)
+	if Input.is_action_pressed("fire_forward_1"):
+		ThePlayer.fireForward1($GunSlots/Forward1.global_position)
+	if Input.is_action_pressed("fire_forward_2"):
+		ThePlayer.fireForward2($GunSlots/Forward2.global_position)
+	if Input.is_action_pressed("fire_backward"):
+		ThePlayer.fireBackward($GunSlots/Backward.global_position)
+	if Input.is_action_pressed("fire_bomb_bay"):
+		ThePlayer.fireBombBay($GunSlots/BombBay.global_position)
 
-
-
-func updateSubsystems(delta):
-	if gunForward1 != null:
-		gunForward1.update(delta)
-		
-	if gunForward2 != null:
-		gunForward2.update(delta)
-		
-	if gunBackward != null:
-		gunBackward.update(delta)
-		
-	if gunBombBay != null:
-		gunBombBay.update(delta)
