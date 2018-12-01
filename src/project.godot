@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="LD43: Super Space Sacrifice"
-run/main_scene="res://screens/TestScreen.tscn"
+run/main_scene="res://screens/PlayingScreen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 
@@ -73,6 +73,7 @@ fire_bomb_bay=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_n
 2d_physics/layer_4="EnemyProjectiles"
 2d_physics/layer_5="Terrain"
 2d_physics/layer_6="Pickable"
+2d_physics/layer_7="ScreenBounds"
 
 [rendering]
 
