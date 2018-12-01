@@ -4,9 +4,13 @@ var rot = 0
 var angularSpeed = 0
 
 
-
 func _ready():
-	angularSpeed = rand_range(PI/3, PI)
+	crashDamage = 7
+	shield = 0
+	health = 1
+	speed = 200
+
+	angularSpeed = rand_range(-PI, PI)
 
 
 
