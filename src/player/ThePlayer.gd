@@ -22,16 +22,16 @@ func init():
 	health = 10
 	
 	gunForward1 = TheGuns.CheapLaser.new()
-	gunForward1.setFireAngleInRad(0)
+	gunForward1.setFireAngleInDeg(0)
 
 	gunForward2 = TheGuns.CheapLaser.new()
-	gunForward2.setFireAngleInRad(-PI/4)
+	gunForward2.setFireAngleInDeg(-45)
 
 	gunBackward = TheGuns.CheapLaser.new()
-	gunBackward.setFireAngleInRad(PI)
+	gunBackward.setFireAngleInDeg(180)
 
 	gunBombBay = TheGuns.CheapLaser.new()
-	gunBombBay.setFireAngleInRad(PI/2)
+	gunBombBay.setFireAngleInDeg(90)
 
 
 
@@ -52,28 +52,34 @@ func updateSubsystems(delta):
 
 func fireForward1(pos):
 	if gunForward1 != null:
-		gunForward1.fire(bulletsRoot, pos)
+		gunForward1.firePlayer(bulletsRoot, pos)
 
 
 
 func fireForward2(pos):
 	if gunForward2 != null:
-		gunForward2.fire(bulletsRoot, pos)
+		gunForward2.firePlayer(bulletsRoot, pos)
 
 
 
 func fireBackward(pos):
 	if gunBackward != null:
-		gunBackward.fire(bulletsRoot, pos)
+		gunBackward.firePlayer(bulletsRoot, pos)
 
 
 
 func fireBombBay(pos):
 	if gunBombBay != null:
-		gunBombBay.fire(bulletsRoot, pos)
+		gunBombBay.firePlayer(bulletsRoot, pos)
 
 
 
-func crashedWithEnemy(damage):
+func crashedWithEnemy(enemy):
 	TheSound.crash()
-	health -= damage
+	health -= enemy.crashDamage
+
+
+
+func hitByBullet(bullet):
+	TheSound.hit()
+	health -= bullet.damage

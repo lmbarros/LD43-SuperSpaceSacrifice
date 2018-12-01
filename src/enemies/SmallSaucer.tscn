@@ -20,8 +20,20 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 
+visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Guns" type="Node2D" parent="." index="2"]
+
+[node name="GunL" type="Position2D" parent="Guns" index="0"]
+
+position = Vector2( -20, 6 )
+
+[node name="GunR" type="Position2D" parent="Guns" index="1"]
+
+position = Vector2( 23.0627, 5.93733 )
 _sections_unfolded = [ "Transform" ]
 
 

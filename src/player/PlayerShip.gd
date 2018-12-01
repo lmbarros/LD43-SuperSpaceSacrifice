@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 signal died
 
@@ -34,7 +34,7 @@ func doMovement(delta):
 	if velocity.length() > 0:
 			velocity = velocity.normalized() * ThePlayer.speed
 
-	move_and_slide(velocity)
+	position += velocity * delta
 
 
 
@@ -55,3 +55,13 @@ func checkHealth():
 		queue_free()
 		TheSound.mediumExplosion()
 		emit_signal("died")
+
+
+
+func _onAreaEntered(area):
+	match area.type:
+		"enemy":
+			ThePlayer.crashedWithEnemy(area)
+		"bullet":
+			ThePlayer.hitByBullet(area)
+			area.queue_free()

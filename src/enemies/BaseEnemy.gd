@@ -17,16 +17,16 @@ func _process(delta):
 
 
 
-func _onBodyEntered(body):
+func _onAreaEntered(area):
 	# Ignore whoever doesn't interact with the Enemies layer
-	if body.collision_mask & 2 == 0:
+	if area.collision_mask & 2 == 0:
 		return
 
-	match body.type:
+	match area.type:
 		"bullet":
-			hitByBullet(body)
+			hitByBullet(area)
 		"player":
-			hitThePlayer(body)
+			crashedWithThePlayer(area)
 
 
 
@@ -39,8 +39,7 @@ func hitByBullet(bullet):
 
 
 
-func hitThePlayer(player):
-	ThePlayer.crashedWithEnemy(crashDamage)
+func crashedWithThePlayer(player):
 	die()
 
 

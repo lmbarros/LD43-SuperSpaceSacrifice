@@ -1,33 +1,23 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://bullets/BaseBullet.gd" type="Script" id=1]
+[ext_resource path="res://bullets/BaseBullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bullets/small-laser-bullet.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 1.21396
-height = 19.531
+radius = 1.92966
+height = 20.0
 
-[node name="SmallLaserBullet" type="KinematicBody2D"]
+[node name="BaseBullet" index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 0.145485, -0.0969887 )
-input_pickable = false
-collision_layer = 4
-collision_mask = 18
-collision/safe_margin = 0.08
-script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+[node name="Sprite" parent="." index="0"]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
-position = Vector2( 10, 0 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1"]
 
-visible = false
-position = Vector2( 9.48494, 0.0484947 )
-rotation = 1.5708
+position = Vector2( -0.51506, 0.0484966 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+
+

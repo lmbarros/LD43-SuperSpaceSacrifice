@@ -26,20 +26,39 @@ func playSound():
 
 
 
-func fire(scene, globalPos):
-	if canFireInSecs > 0.0:
+func firePlayer(scene, globalPos):
+	_fire(scene, globalPos, true)
+
+
+
+func fireEnemy(scene, globalPos):
+	_fire(scene, globalPos, false)
+
+
+
+func _fire(scene, globalPos, isPlayerShooting):
+	# Enemies don't have to way for cooldown
+	if isPlayerShooting && canFireInSecs > 0.0:
 		return false
-	
+
 	playSound()
 	canFireInSecs = cooldown
 
 	var proj = bullet.instance()
 	proj.init(globalPos, bulletVector)
+
+	if isPlayerShooting:
+		proj.collision_mask += 2 # Enemies
+		proj.collision_layer = 4 # PlayerBullets
+	else:
+		proj.collision_mask += 1 # Player
+		proj.collision_layer = 8 # EnemyBullets
+
 	scene.add_child(proj)
 
 	return true
 
 
 
-func setFireAngleInRad(angle):
-	bulletVector = polar2cartesian(1, angle)
+func setFireAngleInDeg(angle):
+	bulletVector = polar2cartesian(1, deg2rad(angle))

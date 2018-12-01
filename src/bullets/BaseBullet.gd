@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 # Immutable bullet properties
 var speed = 1000 # pixels/second
@@ -16,8 +16,9 @@ func init(pos, dir):
 	rotation = dir.angle()
 
 
+
 func _process(delta):
-	move_and_collide(velocity * delta)
+	position += velocity * delta
 	destroyIfOutOfBounds()
 
 
