@@ -1,5 +1,8 @@
 extends Node2D
 
+signal died
+
+
 var type = "player"
 
 
@@ -12,6 +15,7 @@ func _process(delta):
 	ThePlayer.updateSubsystems(delta)
 	doMovement(delta)
 	doFire()
+	checkHealth()
 
 
 
@@ -43,3 +47,10 @@ func doFire():
 		ThePlayer.fireBackward($GunSlots/Backward.global_position)
 	if Input.is_action_pressed("fire_bomb_bay"):
 		ThePlayer.fireBombBay($GunSlots/BombBay.global_position)
+
+
+
+func checkHealth():
+	if ThePlayer.health < 0:
+		queue_free()
+		emit_signal("died")

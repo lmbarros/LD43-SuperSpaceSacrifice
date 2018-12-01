@@ -3,6 +3,10 @@ extends Node
 # Player speed, in pixels/second
 var speed = 150
 
+# Health; game over if zero
+var health = 10
+
+
 # Bullets are added here
 var bulletsRoot = null
 
@@ -65,3 +69,8 @@ func fireBackward(pos):
 func fireBombBay(pos):
 	if gunBombBay != null:
 		gunBombBay.fire(bulletsRoot, pos)
+
+
+
+func crashedWithEnemy(damage):
+	health -= damage

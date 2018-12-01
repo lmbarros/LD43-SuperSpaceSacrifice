@@ -3,9 +3,11 @@ extends Area2D
 
 # Immutable enemy properties
 var type = "enemy"
+var crashDamage = 7 # how much damages player if crashes with it
 var shield = 0
 var health = 1
 var speed = 200 # in pixels/sec
+
 
 
 func _process(delta):
@@ -20,8 +22,11 @@ func _onBodyEntered(body):
 	if body.collision_mask & 2 == 0:
 		return
 
-	if body.type == "bullet":
-		hitByBullet(body)
+	match body.type:
+		"bullet":
+			hitByBullet(body)
+		"player":
+			hitThePlayer(body)
 
 
 
@@ -30,6 +35,12 @@ func hitByBullet(bullet):
 	if health <= 0:
 		die()
 	bullet.queue_free()
+
+
+
+func hitThePlayer(player):
+	ThePlayer.crashedWithEnemy(crashDamage)
+	die()
 
 
 
