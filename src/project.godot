@@ -17,8 +17,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-TheWeapons="*res://weapons/TheWeapons.gd"
-TheProjectiles="*res://projectiles/TheProjectiles.gd"
+TheGuns="*res://guns/TheGuns.gd"
+TheBullets="*res://bullets/TheBullets.gd"
 ThePlayer="*res://player/ThePlayer.gd"
 
 [display]
@@ -69,8 +69,8 @@ fire_bomb_bay=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_n
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
-2d_physics/layer_3="PlayerProjectiles"
-2d_physics/layer_4="EnemyProjectiles"
+2d_physics/layer_3="PlayerBullets"
+2d_physics/layer_4="EnemyBullets"
 2d_physics/layer_5="Terrain"
 2d_physics/layer_6="Pickable"
 2d_physics/layer_7="ScreenBounds"

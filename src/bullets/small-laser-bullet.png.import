@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/small-laser-projectile.png-d1e4756372aeccb6b0e0c1046f6b3922.stex"
+path="res://.import/small-laser-bullet.png-8d491ffb619841c0fe12f1c66137ff3d.stex"
 
 [deps]
 
-source_file="res://projectiles/small-laser-projectile.png"
-dest_files=[ "res://.import/small-laser-projectile.png-d1e4756372aeccb6b0e0c1046f6b3922.stex" ]
+source_file="res://bullets/small-laser-bullet.png"
+dest_files=[ "res://.import/small-laser-bullet.png-8d491ffb619841c0fe12f1c66137ff3d.stex" ]
 
 [params]
 

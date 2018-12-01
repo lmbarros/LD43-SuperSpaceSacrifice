@@ -3,8 +3,8 @@ extends Node
 # Player speed, in pixels/second
 var speed = 150
 
-# Projectiles are added here
-var projectilesRoot = null
+# Bullets are added here
+var bulletsRoot = null
 
 # The guns
 var gunForward1 = null
@@ -15,16 +15,16 @@ var gunBombBay = null
 
 
 func _ready():
-	gunForward1 = TheWeapons.CheapLaser.new()
+	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.setFireAngleInRad(0)
 
-	gunForward2 = TheWeapons.CheapLaser.new()
+	gunForward2 = TheGuns.CheapLaser.new()
 	gunForward2.setFireAngleInRad(-PI/4)
 
-	gunBackward = TheWeapons.CheapLaser.new()
+	gunBackward = TheGuns.CheapLaser.new()
 	gunBackward.setFireAngleInRad(PI)
 
-	gunBombBay = TheWeapons.CheapLaser.new()
+	gunBombBay = TheGuns.CheapLaser.new()
 	gunBombBay.setFireAngleInRad(PI/2)
 
 
@@ -46,22 +46,22 @@ func updateSubsystems(delta):
 
 func fireForward1(pos):
 	if gunForward1 != null:
-		gunForward1.fire(projectilesRoot, pos)
+		gunForward1.fire(bulletsRoot, pos)
 
 
 
 func fireForward2(pos):
 	if gunForward2 != null:
-		gunForward2.fire(projectilesRoot, pos)
+		gunForward2.fire(bulletsRoot, pos)
 
 
 
 func fireBackward(pos):
 	if gunBackward != null:
-		gunBackward.fire(projectilesRoot, pos)
+		gunBackward.fire(bulletsRoot, pos)
 
 
 
 func fireBombBay(pos):
 	if gunBombBay != null:
-		gunBombBay.fire(projectilesRoot, pos)
+		gunBombBay.fire(bulletsRoot, pos)

@@ -4,7 +4,7 @@ var type = "player"
 
 
 func _ready():
-	ThePlayer.projectilesRoot = get_tree().current_scene
+	ThePlayer.bulletsRoot = get_tree().current_scene
 
 
 
@@ -43,4 +43,3 @@ func doFire():
 		ThePlayer.fireBackward($GunSlots/Backward.global_position)
 	if Input.is_action_pressed("fire_bomb_bay"):
 		ThePlayer.fireBombBay($GunSlots/BombBay.global_position)
-

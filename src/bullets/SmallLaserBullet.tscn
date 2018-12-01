@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://projectiles/BaseProjectile.gd" type="Script" id=1]
-[ext_resource path="res://projectiles/small-laser-projectile.png" type="Texture" id=2]
+[ext_resource path="res://bullets/BaseBullet.gd" type="Script" id=1]
+[ext_resource path="res://bullets/small-laser-bullet.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 1.21396
 height = 19.531
 
-[node name="SmallLaserProjectile" type="KinematicBody2D"]
+[node name="SmallLaserBullet" type="KinematicBody2D"]
 
 position = Vector2( 0.145485, -0.0969887 )
 input_pickable = false
@@ -31,5 +31,3 @@ position = Vector2( 9.48494, 0.0484947 )
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
-
-

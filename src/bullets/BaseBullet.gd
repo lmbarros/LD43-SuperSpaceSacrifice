@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
-# Immutable projectile properties
+# Immutable bullet properties
 var speed = 1000 # pixels/second
 var damage = 1
 
-var type = "projectile"
+var type = "bullet"
 
-# PRojectile velocity, in pixels/second
+# Bullet velocity, in pixels/second
 var velocity = Vector2()
 
 

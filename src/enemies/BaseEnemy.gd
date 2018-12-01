@@ -8,17 +8,16 @@ var health = 1
 
 
 func _onBodyEntered(body):
-	if body.type == "projectile":
-		hitByProjectile(body)
+	if body.type == "bullet":
+		hitByBullet(body)
 
 
 
-
-func hitByProjectile(projectile):
-	health -= projectile.damage
+func hitByBullet(bullet):
+	health -= bullet.damage
 	if health <= 0:
 		die()
-	projectile.queue_free()
+	bullet.queue_free()
 
 
 
