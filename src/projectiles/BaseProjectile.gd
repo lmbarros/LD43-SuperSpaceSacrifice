@@ -4,6 +4,7 @@ extends KinematicBody2D
 var speed = 1000 # pixels/second
 var damage = 1
 
+var type = "projectile"
 
 # PRojectile velocity, in pixels/second
 var velocity = Vector2()

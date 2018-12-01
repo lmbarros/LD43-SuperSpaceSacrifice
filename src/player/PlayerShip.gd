@@ -1,5 +1,7 @@
 extends Node2D
 
+var type = "player"
+
 
 func _ready():
 	ThePlayer.projectilesRoot = get_tree().current_scene
