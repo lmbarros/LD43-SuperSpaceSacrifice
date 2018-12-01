@@ -16,6 +16,7 @@ func _process(delta):
 	checkHealth()
 
 
+
 func _onAreaEntered(area):
 	# I think I need to do this manually for areas
 	if collision_layer & area.collision_mask == 0:

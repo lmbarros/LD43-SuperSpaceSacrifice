@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://enemies/SmallSaucer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/TestScreen.gd" type="Script" id=1]
+[ext_resource path="res://bosses/SaucerBoss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/PlayerShip.tscn" type="PackedScene" id=3]
+[ext_resource path="res://enemies/SmallAsteroid.tscn" type="PackedScene" id=4]
 
-[node name="TestScreen" type="Node2D"]
+[node name="TestScreen" type="Node2D" index="0"]
 
-[node name="SmallSaucer" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
 
-position = Vector2( 1226.59, 390.895 )
+[node name="SaucerBoss" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 488.379, 396.431 )
+
+[node name="PlayerShip" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 230.623, 387.387 )
+
+[node name="SmallAsteroid" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 920.986, 500.437 )
 
 
