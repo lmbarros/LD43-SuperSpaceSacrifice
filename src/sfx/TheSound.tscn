@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sfx/TheSound.gd" type="Script" id=1]
 [ext_resource path="res://sfx/quick-sacrifices.ogg" type="AudioStream" id=2]
 [ext_resource path="res://sfx/small-laser.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/crash.wav" type="AudioStream" id=4]
-[ext_resource path="res://sfx/small-explosion.wav" type="AudioStream" id=5]
-[ext_resource path="res://sfx/medium-explosion.wav" type="AudioStream" id=6]
-[ext_resource path="res://sfx/hit.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/medium-laser.wav" type="AudioStream" id=4]
+[ext_resource path="res://sfx/large-laser.wav" type="AudioStream" id=5]
+[ext_resource path="res://sfx/missile.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/small-explosion.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/medium-explosion.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/large-explosion.wav" type="AudioStream" id=9]
+[ext_resource path="res://sfx/crash.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/hit.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/select.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/powerup.wav" type="AudioStream" id=13]
 
 [node name="TheSound" type="Node" index="0"]
 
@@ -30,7 +36,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Crash" type="AudioStreamPlayer" parent="." index="2"]
+[node name="MediumLaser" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 4 )
 volume_db = 0.0
@@ -39,7 +45,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="SmallExplosion" type="AudioStreamPlayer" parent="." index="3"]
+[node name="LargeLaser" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 5 )
 volume_db = 0.0
@@ -48,7 +54,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="MediumExplosion" type="AudioStreamPlayer" parent="." index="4"]
+[node name="Missile" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 6 )
 volume_db = 0.0
@@ -57,9 +63,63 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Hit" type="AudioStreamPlayer" parent="." index="5"]
+[node name="SmallExplosion" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="MediumExplosion" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="LargeExplosion" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Crash" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Hit" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Select" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 13 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

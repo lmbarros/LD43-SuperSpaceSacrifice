@@ -17,13 +17,18 @@ func smallLaser():
 
 
 
-func crash():
-	$Crash.play()
+func mediumLaser():
+	$MediumLaser.play()
 
 
 
-func hit():
-	$Hit.play()
+func largeLaser():
+	$LargeLaser.play()
+
+
+
+func missile():
+	$Missile.play()
 
 
 
@@ -34,3 +39,28 @@ func smallExplosion():
 
 func mediumExplosion():
 	$MediumExplosion.play()
+
+
+
+func largeExplosion():
+	$LargeExplosion.play()
+
+
+
+func crash():
+	$Crash.play()
+
+
+
+func hit():
+	$Hit.play()
+
+
+
+func select():
+	$Select.play()
+
+
+
+func powerUp():
+	$PowerUp.play()
