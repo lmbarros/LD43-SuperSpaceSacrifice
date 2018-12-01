@@ -11,12 +11,13 @@ config_version=3
 [application]
 
 config/name="LD43: Super Space Sacrifice"
+run/main_scene="res://screens/TestScreen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1280
+window/size/width=1270
 window/size/height=720
 
 [rendering]
