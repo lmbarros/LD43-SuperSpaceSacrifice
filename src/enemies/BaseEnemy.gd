@@ -17,22 +17,23 @@ func _process(delta):
 
 
 func _onAreaEntered(area):
-	# Ignore whoever doesn't interact with the Enemies layer
-	if area.collision_mask & 2 == 0:
+	# I think I need to do this manually for areas
+	if collision_layer & area.collision_mask == 0:
 		return
 
 	match area.type:
-		"bullet":
-			hitByBullet(area)
 		"player":
 			crashedWithThePlayer(area)
+
+		"bullet":
+			hitByBullet(area)
+			area.queue_free()
 
 
 
 func hitByBullet(bullet):
 	TheSound.hit()
 	health -= bullet.damage
-	bullet.queue_free()
 
 
 

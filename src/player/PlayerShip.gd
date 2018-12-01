@@ -35,6 +35,8 @@ func doMovement(delta):
 			velocity = velocity.normalized() * ThePlayer.speed
 
 	position += velocity * delta
+	position.x = clamp(position.x, 35, 1235)
+	position.y = clamp(position.y, 20, 700)
 
 
 
@@ -59,9 +61,14 @@ func checkHealth():
 
 
 func _onAreaEntered(area):
+	# I think I need to do this manually for areas
+	if collision_layer & area.collision_mask == 0:
+		return
+
 	match area.type:
 		"enemy":
 			ThePlayer.crashedWithEnemy(area)
+
 		"bullet":
 			ThePlayer.hitByBullet(area)
 			area.queue_free()
