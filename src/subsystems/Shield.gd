@@ -61,4 +61,7 @@ func update(delta):
 # destroyed. If zero, it means it was just destroyed (no damage "surpassed" it).
 func hit(damage):
 	health -= damage
-	return health
+	var tmp = health
+	health = max(health, 0)
+
+	return tmp

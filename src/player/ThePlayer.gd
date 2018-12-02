@@ -134,6 +134,7 @@ func _hitShield(damage):
 		return damage
 	else:
 		var remainingShield = shield.hit(damage)
+
 		if remainingShield < 0:
 			return -remainingShield
 
@@ -142,6 +143,9 @@ func _hitShield(damage):
 
 
 func _hitArmor(damage):
+	if damage == 0:
+		return
+
 	if armor == null:
 		dead = true
 	else:
