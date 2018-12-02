@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://screens/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://fonts/TitleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://screens/stackedboxes-logo.png" type="Texture" id=4]
+[ext_resource path="res://fonts/MediumFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://screens/stackedboxes-logo.png" type="Texture" id=5]
+[ext_resource path="res://player/player-ship.png" type="Texture" id=6]
+[ext_resource path="res://subsystems/icon-lamb.png" type="Texture" id=7]
+[ext_resource path="res://enemies/small-saucer.png" type="Texture" id=8]
 
 [node name="TitleScreen" type="Node2D" index="0"]
 
@@ -82,18 +86,66 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
 
-[node name="Logo" type="Sprite" parent="." index="3"]
+[node name="Story" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 93.0
+margin_top = 234.0
+margin_right = 1134.0
+margin_bottom = 411.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_constants/line_spacing = 10
+text = "The Bork robot race is so powerful they can destroy the entire galaxy in a second. But they are not evil -- they just ask for a sacrifice once every century.
+
+The last one was 99 years ago. Your quest is to reach the Borks to make the sacrifice and give the humans one more century of existence. Legends say you may need to make other sacrifices on your way..."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
+
+[node name="Logo" type="Sprite" parent="." index="4"]
 
 position = Vector2( 1173.39, 619.275 )
 scale = Vector2( 0.68024, 0.68024 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
-[node name="canGoTimer" type="Timer" parent="." index="4"]
+[node name="canGoTimer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 0.6
 one_shot = true
 autostart = true
+
+[node name="Player" type="Sprite" parent="." index="6"]
+
+position = Vector2( 325.952, 568.952 )
+scale = Vector2( 2.99777, 2.99777 )
+texture = ExtResource( 6 )
+
+[node name="Lamb" type="Sprite" parent="." index="7"]
+
+position = Vector2( 592.062, 543.327 )
+scale = Vector2( 2.04419, 2.04419 )
+texture = ExtResource( 7 )
+
+[node name="Saucer" type="Sprite" parent="." index="8"]
+
+position = Vector2( 857.787, 558.739 )
+rotation = -0.098364
+scale = Vector2( 2.89762, 2.89762 )
+texture = ExtResource( 8 )
 
 [connection signal="timeout" from="canGoTimer" to="." method="_onCanGoTimerTimeout"]
 
