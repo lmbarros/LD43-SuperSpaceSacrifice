@@ -28,7 +28,7 @@ func _onPlayerDiedTimerTimeout():
 
 
 func _onBossDied():
-	print("From PlayingScreen: Boss died!")
+	$BossDiedTimer.start()
 
 
 
@@ -41,3 +41,8 @@ func _onBossBecameActive(boss):
 	$BossMenu.show_modal(true)
 	get_tree().paused = true
 	Input.action_release("pause") # so that the pause menu itself doesn't unpause!
+
+
+func _onBossDiedTimerTimeout():
+	ThePlayer.level += 1
+	get_tree().change_scene("res://screens/NextLevelScreen.tscn")

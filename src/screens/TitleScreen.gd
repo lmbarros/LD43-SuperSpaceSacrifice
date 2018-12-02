@@ -10,8 +10,8 @@ func _onCanGoTimerTimeout():
 func _input(event):
 	if !_canGo:
 		return
-	
+
 	if (event is InputEventJoypadButton || event is InputEventKey):
 		ThePlayer.init()
-		get_tree().change_scene("res://screens/PlayingScreen.tscn")
+		get_tree().change_scene("res://screens/NextLevelScreen.tscn")
 		Input.action_release("pause") # avoid starting paused
