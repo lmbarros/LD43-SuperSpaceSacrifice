@@ -8,6 +8,7 @@ func _process(delta):
 	_rescaleBars()
 	$ArmorBar.value = ThePlayer.getArmor()
 	$ShieldBar.value = ThePlayer.getShield()
+	$LevelLabel.text = "Level " + str(ThePlayer.level) + " / " + str(TheConsts.TOTAL_LEVELS)
 
 
 func _rescaleBars():

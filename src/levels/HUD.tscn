@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/HUD.gd" type="Script" id=1]
 [ext_resource path="res://levels/health-bar-under.png" type="Texture" id=2]
 [ext_resource path="res://levels/health-bar.png" type="Texture" id=3]
 [ext_resource path="res://fonts/MediumFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=5]
 
 [node name="HUD" type="CanvasLayer" index="0"]
 
@@ -133,5 +134,29 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="LevelLabel" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1098.0
+margin_top = 13.0
+margin_right = 1256.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+text = "Level: 1/n"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 
