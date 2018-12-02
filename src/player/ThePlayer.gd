@@ -3,18 +3,23 @@ extends Node
 # Classes we'll use here
 onready var Armor = preload("res://subsystems/Armor.gd")
 onready var Shield = preload("res://subsystems/Shield.gd")
+onready var Engine = preload("res://subsystems/Engine.gd")
+
 
 # This becomes true when hit without armor.
 var dead = false
 
-# Player speed, in pixels/second
-var speed = 0
+# Base speed, in pixels/second. Engines add speed on top of this.
+const baseSpeed = 100
 
 # Armor. If null, ship is not "wearing" armor.
 var armor = null
 
 # Shield. If null, ship is not "wearing" shield.
 var shield = null
+
+# Additional engine. If null, ship is using only the built-in engines.
+var engine = null
 
 # Bullets are added here
 var bulletsRoot = null
@@ -32,10 +37,10 @@ var gunBombBay = null
 
 func init():
 	dead = false
-	speed = 150
 
 	armor = Armor.new(1)
 	shield = Shield.new(2)
+	engine = Engine.new(1)
 
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.setFireAngleInDeg(0)
@@ -168,3 +173,11 @@ func getMaxShield():
 		return 0
 	else:
 		return shield.maxHealth
+
+
+
+func getSpeed():
+	if engine == null:
+		return baseSpeed
+	else:
+		return baseSpeed + engine.extraSpeed
