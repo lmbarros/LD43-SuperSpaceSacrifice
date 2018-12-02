@@ -8,7 +8,7 @@
 [ext_resource path="res://levels/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/BossMenu.tscn" type="PackedScene" id=7]
 
-[node name="PlayingScreen" type="Node2D" index="0"]
+[node name="PlayingScreen" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

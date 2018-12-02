@@ -44,5 +44,6 @@ func _onBossBecameActive(boss):
 
 
 func _onBossDiedTimerTimeout():
+	TheSound.stopMusic()
 	ThePlayer.level += 1
 	get_tree().change_scene("res://screens/NextLevelScreen.tscn")
