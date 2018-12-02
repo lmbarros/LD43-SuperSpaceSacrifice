@@ -79,3 +79,17 @@ func _onAreaEntered(area):
 		"bullet":
 			ThePlayer.hitByBullet(area)
 			area.queue_free()
+
+		"powerup":
+			if ThePlayer.cargo1 == null:
+				ThePlayer.cargo1 = area.thing
+				area.queue_free()
+			elif ThePlayer.cargo2 == null:
+				ThePlayer.cargo2 = area.thing
+				area.queue_free()
+			elif ThePlayer.cargo3 == null:
+				ThePlayer.cargo3 = area.thing
+				area.queue_free()
+			elif ThePlayer.cargo4 == null:
+				ThePlayer.cargo4 = area.thing
+				area.queue_free()

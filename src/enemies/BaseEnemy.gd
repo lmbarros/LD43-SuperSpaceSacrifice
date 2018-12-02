@@ -1,5 +1,6 @@
 extends Area2D
 
+onready var PowerUp = preload("res://subsystems/PowerUp.tscn")
 
 # Immutable enemy properties
 var type = "enemy"
@@ -7,6 +8,8 @@ var crashDamage = 7 # how much damages player if crashes with it
 var shield = 0
 var health = 1
 var speed = 200 # in pixels/sec
+
+var triedToSpawnPowerUp = false
 
 
 # Bullets will be added here
@@ -61,3 +64,16 @@ func _isOutOfBounds():
 func checkHealth():
 	if health <= 0:
 		die()
+
+
+
+func spawnPowerUpMaybe(p):
+	if triedToSpawnPowerUp:
+		return
+
+	triedToSpawnPowerUp = true
+
+	if rand_range(0, 1.0) < p:
+		var pu = PowerUp.instance()
+		pu.position = global_position
+		get_tree().current_scene.add_child(pu)
