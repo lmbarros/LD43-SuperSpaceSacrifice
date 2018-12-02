@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://screens/stackedboxes-logo.png" type="Texture" id=4]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -91,7 +91,7 @@ texture = ExtResource( 4 )
 [node name="canGoTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 1.5
+wait_time = 0.6
 one_shot = true
 autostart = true
 

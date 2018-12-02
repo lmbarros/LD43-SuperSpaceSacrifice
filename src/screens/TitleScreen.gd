@@ -14,3 +14,4 @@ func _input(event):
 	if (event is InputEventJoypadButton || event is InputEventKey):
 		ThePlayer.init()
 		get_tree().change_scene("res://screens/PlayingScreen.tscn")
+		Input.action_release("pause") # avoid starting paused
