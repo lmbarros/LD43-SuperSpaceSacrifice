@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/PauseMenu.gd" type="Script" id=1]
-[ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://levels/MenuIcon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/PauseMenu.shader" type="Shader" id=4]
+[ext_resource path="res://levels/MenuIcon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/MediumFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://levels/PauseMenu.shader" type="Shader" id=5]
 
 [sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
-shader = ExtResource( 4 )
+shader = ExtResource( 5 )
 
 [node name="PauseMenu" type="Popup" index="0"]
 
@@ -44,47 +45,357 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PausedLabel" type="Label" parent="MoveAboveEverything/UI" index="0"]
+[node name="Weapons" type="Node2D" parent="MoveAboveEverything/UI" index="0"]
+
+position = Vector2( 280, 19 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SelectionIndicator" type="ColorRect" parent="MoveAboveEverything/UI/Weapons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 43.0
-margin_right = 1270.0
-margin_bottom = 74.0
+margin_left = -222.0
+margin_top = -8.0
+margin_right = 226.0
+margin_bottom = 135.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.11673, 0.116211, 0.132812, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="GunFW1" parent="MoveAboveEverything/UI/Weapons" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -165.283, 66.1247 )
+label = "FW Gun 1"
+
+[node name="GunFW2" parent="MoveAboveEverything/UI/Weapons" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -55.2825, 66.1247 )
+label = "FW Gun 2"
+
+[node name="GunBW" parent="MoveAboveEverything/UI/Weapons" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 54.7175, 66.1247 )
+label = "BW Gun"
+
+[node name="GunBomb" parent="MoveAboveEverything/UI/Weapons" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 164.717, 66.1247 )
+label = "Bomb Bay"
+
+[node name="Label" type="Label" parent="MoveAboveEverything/UI/Weapons" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -55.0
+margin_right = 61.0
+margin_bottom = 23.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
-text = "Paused!"
+custom_fonts/font = ExtResource( 3 )
+text = "Weapons"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_fonts" ]
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Subsystems" type="Node2D" parent="MoveAboveEverything/UI" index="1"]
+
+position = Vector2( 280, 164.738 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SelectionIndicator" type="ColorRect" parent="MoveAboveEverything/UI/Subsystems" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -222.0
+margin_top = -5.0
+margin_right = 226.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.11673, 0.116211, 0.132812, 1 )
+
+[node name="Engine" parent="MoveAboveEverything/UI/Subsystems" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -165.283, 66.1247 )
+label = "Engine"
+
+[node name="Armor" parent="MoveAboveEverything/UI/Subsystems" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -55.2825, 66.1247 )
+label = "Armor"
+
+[node name="Shield" parent="MoveAboveEverything/UI/Subsystems" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 54.7175, 66.1247 )
+label = "Shield"
+
+[node name="Label" type="Label" parent="MoveAboveEverything/UI/Subsystems" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -55.0
+margin_right = 99.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Subsystems"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Cargo" type="Node2D" parent="MoveAboveEverything/UI" index="2"]
+
+position = Vector2( 280, 315.738 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SelectionIndicator" type="ColorRect" parent="MoveAboveEverything/UI/Cargo" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -222.0
+margin_top = -6.0
+margin_right = 226.0
+margin_bottom = 137.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.11673, 0.116211, 0.132812, 1 )
+
+[node name="Slot1" parent="MoveAboveEverything/UI/Cargo" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -165.283, 66.1247 )
+label = "Slot 1"
+
+[node name="Slot2" parent="MoveAboveEverything/UI/Cargo" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -55.2825, 66.1247 )
+label = "Slot 2"
+
+[node name="Slot3" parent="MoveAboveEverything/UI/Cargo" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 54.7175, 66.1247 )
+label = "Slot 3"
+
+[node name="Slot4" parent="MoveAboveEverything/UI/Cargo" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 164.717, 66.1247 )
+label = "Slot 4"
+
+[node name="Label" type="Label" parent="MoveAboveEverything/UI/Cargo" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -55.0
+margin_right = 61.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Cargo"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Crew" type="Node2D" parent="MoveAboveEverything/UI" index="3"]
+
+editor/display_folded = true
+position = Vector2( 280, 470.738 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="MoveAboveEverything/UI/Crew" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -36.0
+margin_top = -1.0
+margin_right = 31.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Crew"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Info" type="Label" parent="MoveAboveEverything/UI/Crew" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -221.0
+margin_top = 30.0
+margin_right = 211.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Total: n / Unassigned: n"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Info" type="Node2D" parent="MoveAboveEverything/UI" index="4"]
+
+editor/display_folded = true
+position = Vector2( 280, 543.738 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MenuIcon" parent="MoveAboveEverything/UI" index="1" instance=ExtResource( 3 )]
+[node name="Label" type="Label" parent="MoveAboveEverything/UI/Info" index="0"]
 
-position = Vector2( 119.13, 99.2751 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -36.0
+margin_top = -1.0
+margin_right = 31.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Info"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
-[node name="MenuIcon2" parent="MoveAboveEverything/UI" index="2" instance=ExtResource( 3 )]
+[node name="Info" type="Label" parent="MoveAboveEverything/UI/Info" index="1"]
 
-position = Vector2( 203.063, 101.983 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -255.0
+margin_top = 30.0
+margin_right = 250.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Gun: A nice gun."
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="MenuIcon3" parent="MoveAboveEverything/UI" index="3" instance=ExtResource( 3 )]
+[node name="Help" type="Label" parent="MoveAboveEverything/UI" index="5"]
 
-position = Vector2( 280.678, 94.7626 )
-
-[node name="MenuIcon4" parent="MoveAboveEverything/UI" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 359.195, 96.5676 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 656.738
+margin_right = 1242.0
+margin_bottom = 714.738
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+custom_constants/line_spacing = 6
+text = "Del/B Delete item
+A/Enter: swap"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_constants", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MoveAboveBGFX" type="CanvasLayer" parent="." index="1"]
 

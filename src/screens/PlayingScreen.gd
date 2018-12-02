@@ -4,6 +4,7 @@ extends Node2D
 func _process(delta):
 	if !ThePlayer.dead && Input.is_action_just_pressed("pause"):
 		TheSound.select()
+		$PauseMenu.initBeforeShow()
 		$PauseMenu.show_modal(true)
 		get_tree().paused = true
 		Input.action_release("pause") # so that the pause menu itself doesn't unpause!
