@@ -16,6 +16,17 @@ License is GPL3.
 
 ## Notes to self
 
+### Health (AKA Armor)
+
+* Level 0: 1
+* Level 1: 30
+* Level 2: 60
+* Level 3: 125
+* Level 4: 250
+* Level 5: 500
+
+
 ### Screen
 
 * Game window: 1280 x 720
+* Terrain-free y-range: ????

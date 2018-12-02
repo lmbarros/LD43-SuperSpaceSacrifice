@@ -1,10 +1,20 @@
 extends Node
 
+# Classes we'll use here
+onready var Armor = preload("res://subsystems/Armor.gd")
+onready var Shield = preload("res://subsystems/Shield.gd")
+
+# This becomes true when hit without armor.
+var dead = false
+
 # Player speed, in pixels/second
 var speed = 0
 
-# Health; game over if zero
-var health = 0
+# Armor. If null, ship is not "wearing" armor.
+var armor = null
+
+# Shield. If null, ship is not "wearing" shield.
+var shield = null
 
 # Bullets are added here
 var bulletsRoot = null
@@ -21,9 +31,12 @@ var gunBombBay = null
 
 
 func init():
+	dead = false
 	speed = 150
-	health = 10
-	
+
+	armor = Armor.new(1)
+	shield = Shield.new(2)
+
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.setFireAngleInDeg(0)
 
@@ -39,6 +52,12 @@ func init():
 
 
 func updateSubsystems(delta):
+	if armor != null:
+		armor.update(delta)
+	
+	if shield != null:
+		shield.update(delta)
+
 	if gunForward1 != null:
 		gunForward1.update(delta)
 		
@@ -79,10 +98,54 @@ func fireBombBay(pos):
 
 func crashedWithEnemy(enemy):
 	TheSound.crash()
-	health -= enemy.crashDamage
+	_hit(enemy.crashDamage)
 
 
 
 func hitByBullet(bullet):
 	TheSound.hit()
-	health -= bullet.damage
+	_hit(bullet.damage)
+
+
+
+func _hit(damage):
+	if armor == null:
+		dead = true
+	else:
+		var remainingArmor = armor.hit(damage)
+		if remainingArmor <= 0:
+			armor = null
+			if remainingArmor < 0:
+				dead = true
+
+
+
+func getArmor():
+	if armor == null:
+		return 0
+	else:
+		return armor.health
+
+
+
+func getMaxArmor():
+	if armor == null:
+		return 0
+	else:
+		return armor.maxHealth
+
+
+
+func getShield():
+	if shield == null:
+		return 0
+	else:
+		return shield.health
+
+
+
+func getMaxShield():
+	if shield == null:
+		return 0
+	else:
+		return shield.maxHealth
