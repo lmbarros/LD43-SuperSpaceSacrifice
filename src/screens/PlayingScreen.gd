@@ -33,7 +33,9 @@ func _onBossDied():
 
 
 func _onBossBecameActive(boss):
-	print("ACTIVE")
+	if ThePlayer.dead:
+		return
+
 	TheSound.select()
 	$BossMenu.initBeforeShow(boss)
 	$BossMenu.show_modal(true)

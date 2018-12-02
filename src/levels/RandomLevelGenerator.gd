@@ -84,3 +84,53 @@ func _spawnBoss():
 
 func _getBoss():
 	return TheEnemies.SaucerBoss.instance()
+
+
+func _onBossMenuNo():
+	pass # nothing, just fight!
+
+
+func _onBossMenuYes():
+
+	var sacrificed = false
+
+	if ThePlayer.crew > 1:
+		ThePlayer.killCrew()
+		sacrificed = true
+	elif ThePlayer.armor:
+		ThePlayer.armor = null
+		sacrificed = true
+	elif ThePlayer.shield:
+		ThePlayer.shield = null
+		sacrificed = true
+	elif ThePlayer.engine:
+		ThePlayer.engine = null
+		sacrificed = true
+	elif ThePlayer.gunForward1:
+		ThePlayer.gunForward1 = null
+		sacrificed = true
+	elif ThePlayer.gunForward2:
+		ThePlayer.gunForward2 = null
+		sacrificed = true
+	elif ThePlayer.gunBombBay:
+		ThePlayer.gunBombBay = null
+		sacrificed = true
+	elif ThePlayer.gunBackward:
+		ThePlayer.gunBackward = null
+		sacrificed = true
+	elif ThePlayer.cargo1 && ThePlayer.cargo1.type != "item":
+		ThePlayer.cargo1 = null
+		sacrificed = true
+	elif ThePlayer.cargo2 && ThePlayer.cargo2.type != "item":
+		ThePlayer.cargo2 = null
+		sacrificed = true
+	elif ThePlayer.cargo3 && ThePlayer.cargo3.type != "item":
+		ThePlayer.cargo3 = null
+		sacrificed = true
+	elif ThePlayer.cargo4 && ThePlayer.cargo4.type != "item":
+		ThePlayer.cargo4 = null
+		sacrificed = true
+
+	if sacrificed:
+		boss.queue_free()
+	# else will have to fight
