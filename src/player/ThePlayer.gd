@@ -4,6 +4,7 @@ extends Node
 onready var Armor = preload("res://subsystems/Armor.gd")
 onready var Shield = preload("res://subsystems/Shield.gd")
 onready var Engine = preload("res://subsystems/Engine.gd")
+onready var Lamb = preload("res://subsystems/Lamb.gd")
 
 
 # This becomes true when hit without armor.
@@ -35,12 +36,20 @@ var gunBackward = null
 var gunBombBay = null
 
 
+# The cargo
+var cargo1 = null
+var cargo2 = null
+var cargo3 = null
+var cargo4 = null
+
+
 func init():
 	dead = false
 
 	armor = Armor.new(1)
 	shield = Shield.new(2)
 	engine = Engine.new(1)
+	cargo1 = Lamb.new()
 
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.setFireAngleInDeg(0)

@@ -35,6 +35,9 @@ func initBeforeShow():
 	_selectWeaponItem(1)
 	_selectSubsystemItem(1)
 	_selectCargoItem(1)
+	_updateImages()
+	_updateInfo()
+	_updateHelp()
 
 
 func _selectWeapons():
@@ -72,17 +75,21 @@ func _handleInput():
 		if _isSubsystemsSelected:
 			_selectWeapons()
 			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isCargoSelected:
 			_selectSubsystems()
 			TheSound.select()
+			_updateInfoAndHelp()
 
 	elif Input.is_action_just_pressed("ui_down"):
 		if _isWeaponsSelected:
 			_selectSubsystems()
 			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isSubsystemsSelected:
 			_selectCargo()
 			TheSound.select()
+			_updateInfoAndHelp()
 
 	elif Input.is_action_just_pressed("ui_right"):
 		if _isWeaponsSelected:
@@ -90,17 +97,22 @@ func _handleInput():
 				return
 			_weaponSelected += 1
 			_selectWeaponItem(_weaponSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isSubsystemsSelected:
 			if _subsystemSelected >= 3:
 				return
 			_subsystemSelected += 1
 			_selectSubsystemItem(_subsystemSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isCargoSelected:
-			if _isCargoSelected:
-				if _cargoSelected >= 4:
-					return
-				_cargoSelected += 1
-				_selectCargoItem(_cargoSelected)
+			if _cargoSelected >= 4:
+				return
+			_cargoSelected += 1
+			_selectCargoItem(_cargoSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 
 	elif Input.is_action_just_pressed("ui_left"):
 		if _isWeaponsSelected:
@@ -108,17 +120,22 @@ func _handleInput():
 				return
 			_weaponSelected -= 1
 			_selectWeaponItem(_weaponSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isSubsystemsSelected:
 			if _subsystemSelected <= 1:
 				return
 			_subsystemSelected -= 1
 			_selectSubsystemItem(_subsystemSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 		elif _isCargoSelected:
-			if _isCargoSelected:
-				if _cargoSelected <= 1:
-					return
-				_cargoSelected -= 1
-				_selectCargoItem(_cargoSelected)
+			if _cargoSelected <= 1:
+				return
+			_cargoSelected -= 1
+			_selectCargoItem(_cargoSelected)
+			TheSound.select()
+			_updateInfoAndHelp()
 
 
 func _selectWeaponItem(index):
@@ -156,3 +173,125 @@ func _selectCargoItem(index):
 	elif index == 2: $MoveAboveEverything/UI/Cargo/Slot2.select()
 	elif index == 3: $MoveAboveEverything/UI/Cargo/Slot3.select()
 	elif index == 4: $MoveAboveEverything/UI/Cargo/Slot4.select()
+
+
+
+func _updateImages():
+	var image = ""
+
+	if ThePlayer.gunForward1 != null:
+		image = ThePlayer.gunForward1.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Weapons/GunFW1.setImage(image)
+
+	if ThePlayer.gunForward2 != null:
+		image = ThePlayer.gunForward2.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Weapons/GunFW2.setImage(image)
+
+	if ThePlayer.gunBackward != null:
+		image = ThePlayer.gunBackward.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Weapons/GunBW.setImage(image)
+
+	if ThePlayer.gunBombBay != null:
+		image = ThePlayer.gunBombBay.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Weapons/GunBomb.setImage(image)
+
+	if ThePlayer.engine != null:
+		image = ThePlayer.engine.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Subsystems/Engine.setImage(image)
+
+	if ThePlayer.armor != null:
+		image = ThePlayer.armor.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Subsystems/Armor.setImage(image)
+
+	if ThePlayer.shield != null:
+		image = ThePlayer.shield.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Subsystems/Shield.setImage(image)
+
+	if ThePlayer.cargo1 != null:
+		image = ThePlayer.cargo1.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Cargo/Slot1.setImage(image)
+
+	if ThePlayer.cargo2 != null:
+		image = ThePlayer.cargo2.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Cargo/Slot2.setImage(image)
+
+	if ThePlayer.cargo3 != null:
+		image = ThePlayer.cargo3.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Cargo/Slot3.setImage(image)
+
+	if ThePlayer.cargo4 != null:
+		image = ThePlayer.cargo4.image
+	else:
+		image = "res://subsystems/icon-none.png"
+	$MoveAboveEverything/UI/Cargo/Slot4.setImage(image)
+
+
+
+func _updateInfoAndHelp():
+	_updateInfo()
+	_updateHelp()
+
+
+
+func _updateInfo():
+	var thing = null
+
+	if _isWeaponsSelected:
+		if _weaponSelected == 1:
+			thing = ThePlayer.gunForward1
+		elif _weaponSelected == 2:
+			thing = ThePlayer.gunForward2
+		elif _weaponSelected == 3:
+			thing = ThePlayer.gunBackward
+		elif _weaponSelected == 4:
+			thing = ThePlayer.gunBombBay
+
+	elif _isSubsystemsSelected:
+		if _subsystemSelected == 1:
+			thing = ThePlayer.engine
+		elif _subsystemSelected == 2:
+			thing = ThePlayer.armor
+		elif _subsystemSelected == 3:
+			thing = ThePlayer.shield
+
+	elif _isCargoSelected:
+		if _cargoSelected == 1:
+			thing = ThePlayer.cargo1
+		elif _cargoSelected == 2:
+			thing = ThePlayer.cargo2
+		elif _cargoSelected == 3:
+			thing = ThePlayer.cargo3
+		elif _cargoSelected == 3:
+			thing = ThePlayer.cargo3
+	
+	if thing == null:
+		$MoveAboveEverything/UI/Info/Label.text = "Empty slot"
+		$MoveAboveEverything/UI/Info/Info.text = "Nothing selected"
+	else:
+		$MoveAboveEverything/UI/Info/Label.text = thing.type.capitalize() + ": " + thing.label
+		$MoveAboveEverything/UI/Info/Info.text = thing.description
+
+
+
+func _updateHelp():
+	pass

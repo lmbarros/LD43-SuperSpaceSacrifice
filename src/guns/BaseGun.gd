@@ -1,11 +1,12 @@
 extends Object
 
 # Immutable gun properties
-var model = "Gun name"
+var label = "Gun name"
 var description = "Base class for all guns"
 var cooldown = 0.2 # in seconds
 var bullet = null # packed scene to instantiate
-var icon = null # image representing the gun
+var image = "" # path to the icon representing the gun
+var type = "gun"
 
 
 # Cooldown control
