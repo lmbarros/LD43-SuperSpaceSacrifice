@@ -349,8 +349,17 @@ func _deleteItem():
 
 # TODO
 func _updateHelp():
-	var help = ""
+	var help = "Pause/F1/Esc: Back to game"
+	
+	if !_isCargoSelected:
+		help += "          Enter/Y: Swap item with the selected cargo slot"
 
-	help += "\nPause/F1/Esc: Back to game"
+	if _isWeaponsSelected:
+		help += "          Space/X: Man/Unman the selected weapon"
+	elif _isSubsystemsSelected:
+		help += "          Space/X: Man/Unman the selected subsystem"
+
+
+	help += ""
 
 	$MoveAboveEverything/UI/Help.text = help
