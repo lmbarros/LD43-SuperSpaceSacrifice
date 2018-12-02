@@ -320,7 +320,10 @@ func _updateInfo():
 		$MoveAboveEverything/UI/Info/Label.text = "Empty slot"
 		$MoveAboveEverything/UI/Info/Info.text = "Nothing selected"
 	else:
-		$MoveAboveEverything/UI/Info/Label.text = thing.type.capitalize() + ": " + thing.label
+		var labelText = thing.type.capitalize() + ": " + thing.label
+		if thing.manned:
+			labelText += " (Manned)"
+		$MoveAboveEverything/UI/Info/Label.text = labelText
 		$MoveAboveEverything/UI/Info/Info.text = thing.description
 
 	var crewText = "Crew size: " + str(ThePlayer.crew)
@@ -343,6 +346,7 @@ func _manUnman():
 		TheSound.select()
 	elif thing && !thing.manned && ThePlayer.getUnassignedCrew() > 0:
 		thing.manned = true
+		TheSound.select()
 		
 
 	_updateImages()
