@@ -198,7 +198,8 @@ func getSpeed():
 	if engine == null:
 		return baseSpeed
 	else:
-		return baseSpeed + engine.extraSpeed
+		var m = 1.5 if engine.manned else 1.0
+		return baseSpeed + engine.extraSpeed * m
 
 
 
