@@ -47,7 +47,6 @@ func _init(level):
 func update(delta):
 	.update(delta) # super
 	health += regenRate * delta
-	print("r ", regenRate * delta)
 	health = min(health, maxHealth)
 
 
