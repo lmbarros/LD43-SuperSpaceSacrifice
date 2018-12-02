@@ -24,4 +24,4 @@ func _process(delta):
 func die():
 	queue_free()
 	TheSound.smallExplosion()
-	spawnPowerUpMaybe(1.0)
+	spawnPowerUpMaybe(0.1)
