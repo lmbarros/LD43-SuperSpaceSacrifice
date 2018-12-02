@@ -33,3 +33,9 @@ func _isOutOfBounds():
 func destroyIfOutOfBounds():
 	if _isOutOfBounds():
 		queue_free()
+
+
+
+func _onAreaEntered(area):
+	if area.collision_layer & (16 | 64) > 0: # Terrain / InstaKillers
+		queue_free()

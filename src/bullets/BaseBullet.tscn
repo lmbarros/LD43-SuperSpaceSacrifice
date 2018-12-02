@@ -10,7 +10,7 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 0
-collision_mask = 16
+collision_mask = 80
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
@@ -25,5 +25,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 9.48494, 0.0484947 )
 rotation = 1.5708
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="area_entered" from="." to="." method="_onAreaEntered"]
 
 

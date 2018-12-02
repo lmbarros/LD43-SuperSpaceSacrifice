@@ -40,7 +40,7 @@ extents = Vector2( 89.4474, 46.075 )
 custom_solver_bias = 0.0
 extents = Vector2( 84.1446, 56.3315 )
 
-[node name="Toll" type="Node2D" index="0"]
+[node name="Toll" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -62,7 +62,8 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_layer = 64
+collision_layer = 80
+collision_mask = 5
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
