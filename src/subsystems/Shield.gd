@@ -52,7 +52,8 @@ func update(delta):
 
 
 
-# Returns how much damage "surpassed" the shield.
+# Returns the remaining shield health. If zero or negative, means it was
+# destroyed. If zero, it means it was just destroyed (no damage "surpassed" it).
 func hit(damage):
 	health -= damage
 	return health

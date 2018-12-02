@@ -98,17 +98,36 @@ func fireBombBay(pos):
 
 func crashedWithEnemy(enemy):
 	TheSound.crash()
-	_hit(enemy.crashDamage)
+	_hitArmor(enemy.crashDamage)
 
 
 
 func hitByBullet(bullet):
 	TheSound.hit()
-	_hit(bullet.damage)
+	var damage = bullet.damage
+
+	if shield != null:
+		damage = _hitShield(damage)
+
+	_hitArmor(damage)
 
 
 
-func _hit(damage):
+# Returns the amount of damage to surpass the shield
+# Notice that shields are never destroyed; they always regen
+func _hitShield(damage):
+	if shield == null:
+		return damage
+	else:
+		var remainingShield = shield.hit(damage)
+		if remainingShield < 0:
+			return -remainingShield
+
+	return 0
+
+
+
+func _hitArmor(damage):
 	if armor == null:
 		dead = true
 	else:

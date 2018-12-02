@@ -3,6 +3,7 @@ extends Area2D
 # Immutable bullet properties
 var speed = 1000 # pixels/second
 var damage = 1
+var ignoresShields = false
 
 var type = "bullet"
 
