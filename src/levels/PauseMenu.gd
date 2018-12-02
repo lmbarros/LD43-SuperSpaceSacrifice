@@ -188,48 +188,70 @@ func _selectCargoItem(index):
 
 func _updateImages():
 	var image = ""
+	var manned = false
 
 	if ThePlayer.gunForward1 != null:
 		image = ThePlayer.gunForward1.image
+		manned = ThePlayer.gunForward1.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Weapons/GunFW1.setImage(image)
+	$MoveAboveEverything/UI/Weapons/GunFW1.setManned(manned)
 
 	if ThePlayer.gunForward2 != null:
 		image = ThePlayer.gunForward2.image
+		manned = ThePlayer.gunForward2.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Weapons/GunFW2.setImage(image)
+	$MoveAboveEverything/UI/Weapons/GunFW2.setManned(manned)
 
 	if ThePlayer.gunBackward != null:
 		image = ThePlayer.gunBackward.image
+		manned = ThePlayer.gunBackward.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Weapons/GunBW.setImage(image)
+	$MoveAboveEverything/UI/Weapons/GunBW.setManned(manned)
 
 	if ThePlayer.gunBombBay != null:
 		image = ThePlayer.gunBombBay.image
+		manned = ThePlayer.gunBombBay.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Weapons/GunBomb.setImage(image)
+	$MoveAboveEverything/UI/Weapons/GunBomb.setManned(manned)
 
 	if ThePlayer.engine != null:
 		image = ThePlayer.engine.image
+		manned = ThePlayer.engine.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Subsystems/Engine.setImage(image)
+	$MoveAboveEverything/UI/Subsystems/Engine.setManned(manned)
 
 	if ThePlayer.armor != null:
 		image = ThePlayer.armor.image
+		manned = ThePlayer.armor.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Subsystems/Armor.setImage(image)
+	$MoveAboveEverything/UI/Subsystems/Armor.setManned(manned)
 
 	if ThePlayer.shield != null:
 		image = ThePlayer.shield.image
+		manned = ThePlayer.shield.manned
 	else:
 		image = "res://subsystems/icon-none.png"
+		manned = false
 	$MoveAboveEverything/UI/Subsystems/Shield.setImage(image)
+	$MoveAboveEverything/UI/Subsystems/Shield.setManned(manned)
 
 	if ThePlayer.cargo1 != null:
 		image = ThePlayer.cargo1.image
@@ -293,7 +315,7 @@ func _updateInfo():
 			thing = ThePlayer.cargo3
 		elif _cargoSelected == 3:
 			thing = ThePlayer.cargo3
-	
+
 	if thing == null:
 		$MoveAboveEverything/UI/Info/Label.text = "Empty slot"
 		$MoveAboveEverything/UI/Info/Info.text = "Nothing selected"
@@ -301,14 +323,30 @@ func _updateInfo():
 		$MoveAboveEverything/UI/Info/Label.text = thing.type.capitalize() + ": " + thing.label
 		$MoveAboveEverything/UI/Info/Info.text = thing.description
 
+	var crewText = "Crew size: " + str(ThePlayer.crew)
+	var un = ThePlayer.getUnassignedCrew()
+	if un > 0:
+		crewText += ".   Unassigned crew: " + str(un)
+	$MoveAboveEverything/UI/Crew/Info.text = crewText	
 
 
-# TODO
+
 func _manUnman():
+	var thing = null
 	if _isWeaponsSelected:
-		pass
+		thing = _getWeaponByIndex(_weaponSelected)
 	elif _isSubsystemsSelected:
-		pass
+		thing = _getSubsystemByIndex(_subsystemSelected)
+		
+	if thing && thing.manned:
+		thing.manned = false
+		TheSound.select()
+	elif thing && !thing.manned && ThePlayer.getUnassignedCrew() > 0:
+		thing.manned = true
+		
+
+	_updateImages()
+	_updateInfoAndHelp()
 
 
 
@@ -342,7 +380,7 @@ func _swapItem():
 	_updateInfoAndHelp()
 
 
-# TODO
+
 func _deleteItem():
 	if _isWeaponsSelected:
 		if _weaponSelected == 1: ThePlayer.gunForward1 = null
@@ -364,7 +402,6 @@ func _deleteItem():
 
 
 
-# TODO
 func _updateHelp():
 	var help = "Pause/F1/Esc: Back to game"
 	

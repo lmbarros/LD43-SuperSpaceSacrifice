@@ -15,10 +15,12 @@ var canFireInSecs = 0
 # Normalized bullet vector
 var bulletVector = Vector2()
 
-
+# Is this gun manned?
+var manned = false
 
 func update(delta):
-	canFireInSecs -= delta
+	var m = 1.5 if manned else 1.0
+	canFireInSecs -= delta * m
 
 
 

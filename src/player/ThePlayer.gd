@@ -43,6 +43,10 @@ var cargo3 = null
 var cargo4 = null
 
 
+# Crew size. Game over if zero.
+var crew = 1
+
+
 func init():
 	dead = false
 
@@ -52,6 +56,7 @@ func init():
 	cargo1 = Lamb.new()
 
 	gunForward1 = TheGuns.CheapLaser.new()
+	gunForward1.manned = true
 	gunForward1.setFireAngleInDeg(0)
 
 	gunForward2 = TheGuns.CheapLaser.new()
@@ -194,3 +199,38 @@ func getSpeed():
 		return baseSpeed
 	else:
 		return baseSpeed + engine.extraSpeed
+
+
+
+func getUnassignedCrew():
+	var un = crew
+
+	if gunForward1 && gunForward1.manned: un -= 1
+	if gunForward2 && gunForward2.manned: un -= 1
+	if gunBackward && gunBackward.manned: un -= 1
+	if gunBombBay && gunBombBay.manned: un -= 1
+
+	if engine && engine.manned: un -= 1
+	if armor && armor.manned: un -= 1
+	if shield && shield.manned: un -= 1
+
+	return un
+
+
+func killCrew():
+	if crew == 0:
+		return
+	
+	if getUnassignedCrew() > 0:
+		# Kill one of the unassigned ones
+		crew -= 1
+		return
+
+	# Kill an assigned one; try the least useful first
+	if gunBombBay && gunBombBay.manned: gunBombBay.manned = false
+	elif gunBackward && gunBackward.manned: gunBackward.manned = false
+	elif gunForward2 && gunForward2.manned: gunForward2.manned = false
+	elif engine && engine.manned: engine.manned = false
+	elif gunForward1 && gunForward1.manned: gunForward1.manned = false
+	elif shield && shield.manned: shield.manned = false
+	elif armor && armor.manned: armor.manned = false

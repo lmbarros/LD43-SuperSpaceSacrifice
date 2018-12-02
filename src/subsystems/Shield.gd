@@ -52,7 +52,9 @@ func _init(level):
 
 func update(delta):
 	.update(delta) # super
-	health += regenRate * delta
+	
+	var m = 1.5 if manned else 1.0
+	health += regenRate * delta * m
 	health = min(health, maxHealth)
 
 

@@ -53,7 +53,7 @@ func doFire():
 
 
 func checkHealth():
-	if ThePlayer.dead:
+	if ThePlayer.dead || ThePlayer.crew == 0:
 		queue_free()
 		TheSound.mediumExplosion()
 		emit_signal("died")

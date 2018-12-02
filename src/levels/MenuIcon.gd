@@ -29,10 +29,5 @@ func deselect():
 
 
 
-func man():
-	$MannedSprite.visible = true
-
-
-
-func unman():
-	$MannedSprite.visible = false
+func setManned(manned):
+	$MannedSprite.visible = manned

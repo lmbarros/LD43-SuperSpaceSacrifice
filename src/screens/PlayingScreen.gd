@@ -8,7 +8,7 @@ func _process(delta):
 		$PauseMenu.show_modal(true)
 		get_tree().paused = true
 		Input.action_release("pause") # so that the pause menu itself doesn't unpause!
-		
+
 
 
 func _ready():
