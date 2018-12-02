@@ -9,6 +9,10 @@ var health = 1
 var speed = 200 # in pixels/sec
 
 
+# Bullets will be added here
+onready var bulletsRoot = get_tree().current_scene
+
+
 
 func _process(delta):
 	if _isOutOfBounds():

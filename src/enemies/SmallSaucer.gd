@@ -16,19 +16,15 @@ onready var _gunR1 = TheGuns.CheapLaser.new()
 onready var _gunR2 = TheGuns.CheapLaser.new()
 onready var _gunR3 = TheGuns.CheapLaser.new()
 
-var bulletsRoot = null
-
 
 
 func _ready():
-	bulletsRoot = get_tree().current_scene
-	
 	time = rand_range(0, 2*PI)
 	crashDamage = 20
 	shield = 0
 	health = 3
 	speed = 100 # in pixels/sec
-	
+
 	_gunL1.setFireAngleInDeg(180+20)
 	_gunL2.setFireAngleInDeg(180)
 	_gunL3.setFireAngleInDeg(180-20)
