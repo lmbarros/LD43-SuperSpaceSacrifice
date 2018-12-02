@@ -349,4 +349,8 @@ func _deleteItem():
 
 # TODO
 func _updateHelp():
-	pass
+	var help = ""
+
+	help += "\nPause/F1/Esc: Back to game"
+
+	$MoveAboveEverything/UI/Help.text = help
