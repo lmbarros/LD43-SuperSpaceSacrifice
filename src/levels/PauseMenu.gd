@@ -137,6 +137,16 @@ func _handleInput():
 			TheSound.select()
 			_updateInfoAndHelp()
 
+	elif Input.is_action_just_pressed("man"):
+		_manUnman()
+
+	elif Input.is_action_just_pressed("swap_item"):
+		_swapItem()
+
+	elif Input.is_action_just_pressed("delete_item"):
+		_deleteItem()
+
+
 
 func _selectWeaponItem(index):
 	_weaponSelected = index
@@ -293,5 +303,50 @@ func _updateInfo():
 
 
 
+# TODO
+func _manUnman():
+	if _isCargoSelected:
+		pass
+	elif _isSubsystemsSelected:
+		pass
+	elif _isCargoSelected:
+		pass
+
+
+
+# TODO
+func _swapItem():
+	if _isCargoSelected:
+		pass
+	elif _isSubsystemsSelected:
+		pass
+	elif _isCargoSelected:
+		pass
+
+
+
+# TODO
+func _deleteItem():
+	if _isWeaponsSelected:
+		if _weaponSelected == 1: ThePlayer.gunForward1 = null
+		elif _weaponSelected == 2: ThePlayer.gunForward2 = null
+		elif _weaponSelected == 3: ThePlayer.gunBackward = null
+		elif _weaponSelected == 4: ThePlayer.gunBombBay = null
+	elif _isSubsystemsSelected:
+		if _subsystemSelected == 1: ThePlayer.engine = null
+		elif _subsystemSelected == 2: ThePlayer.armor = null
+		elif _subsystemSelected == 3: ThePlayer.shield = null
+	elif _isCargoSelected:
+		if _cargoSelected == 1: ThePlayer.cargo1 = null
+		elif _cargoSelected == 2: ThePlayer.cargo2 = null
+		elif _cargoSelected == 3: ThePlayer.cargo3 = null
+		elif _cargoSelected == 4: ThePlayer.cargo4 = null
+
+	_updateImages()
+	_updateInfoAndHelp()
+
+
+
+# TODO
 func _updateHelp():
 	pass
