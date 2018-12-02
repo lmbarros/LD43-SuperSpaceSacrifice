@@ -7,7 +7,7 @@
 [ext_resource path="res://levels/RandomLevelGenerator.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/PauseMenu.tscn" type="PackedScene" id=6]
 
-[node name="PlayingScreen" type="Node2D"]
+[node name="PlayingScreen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -39,6 +39,10 @@ popup_exclusive = true
 _sections_unfolded = [ "Material", "Pause", "Popup", "Rect", "Visibility" ]
 
 [connection signal="died" from="PlayerShip" to="." method="_onPlayerDied"]
+
+[connection signal="bossBecameActive" from="RandomLevelGenerator" to="." method="_onBossBecameActive"]
+
+[connection signal="bossDied" from="RandomLevelGenerator" to="." method="_onBossDied"]
 
 [connection signal="timeout" from="PlayerDiedTimer" to="." method="_onPlayerDiedTimerTimeout"]
 

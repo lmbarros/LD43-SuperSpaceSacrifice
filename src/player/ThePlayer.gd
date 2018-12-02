@@ -28,6 +28,9 @@ var bulletsRoot = null
 # Player causes this amount of damage when crashing with enemies
 var crashDamage = 20
 
+# Current game level. Starts at 1.
+var level = 0
+
 
 # The guns
 var gunForward1 = null
@@ -49,6 +52,8 @@ var crew = 1
 
 func init():
 	dead = false
+
+	level = TheConsts.INITIAL_LEVEL
 
 	armor = Armor.new(1)
 	shield = Shield.new(2)

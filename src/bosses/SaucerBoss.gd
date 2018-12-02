@@ -12,6 +12,7 @@ func _process(delta):
 	._process(delta)
 
 
+
 func die():
 	queue_free()
 	TheSound.largeExplosion()

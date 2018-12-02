@@ -24,3 +24,13 @@ func _onPlayerDied():
 func _onPlayerDiedTimerTimeout():
 	TheSound.stopMusic()
 	get_tree().change_scene("res://screens/GameOverScreen.tscn")
+
+
+
+func _onBossDied():
+	print("From PlayingScreen: Boss died!")
+
+
+func _onBossBecameActive():
+	print("From PlayingScreen: Boss active!")
+

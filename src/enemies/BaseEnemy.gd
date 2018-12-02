@@ -53,7 +53,7 @@ func die():
 
 
 func _isOutOfBounds():
-	return (position.x < -100 || position.x > 1500 ||
+	return (position.x < -100 || position.x > 1800 ||
 		position.y < -100 || position.y > 820)
 
 
