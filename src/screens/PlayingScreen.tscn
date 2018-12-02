@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/PlayingScreen.gd" type="Script" id=1]
 [ext_resource path="res://levels/HUD.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://player/PlayerShip.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/RandomLevelGenerator.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/BossMenu.tscn" type="PackedScene" id=7]
 
-[node name="PlayingScreen" type="Node2D" index="0"]
+[node name="PlayingScreen" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -37,6 +38,10 @@ margin_right = 1206.0
 margin_bottom = 656.0
 popup_exclusive = true
 _sections_unfolded = [ "Material", "Pause", "Popup", "Rect", "Visibility" ]
+
+[node name="BossMenu" parent="." index="6" instance=ExtResource( 7 )]
+
+visible = false
 
 [connection signal="died" from="PlayerShip" to="." method="_onPlayerDied"]
 

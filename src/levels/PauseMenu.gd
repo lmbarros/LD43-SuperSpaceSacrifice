@@ -1,5 +1,7 @@
 extends Popup
 
+var _isShown = false
+
 var _isWeaponsSelected = false
 var _isSubsystemsSelected = false
 var _isCargoSelected = false
@@ -12,10 +14,14 @@ var _cargoSelected = 0
 
 
 func _process(delta):
+	$MoveAboveGame/BGFX.visible = _isShown
+	$MoveAboveBGFX/Darken.visible = _isShown
+	$MoveAboveEverything/UI.visible = _isShown
+
 	var isPaused = get_tree().paused
-	$MoveAboveGame/BGFX.visible = isPaused
-	$MoveAboveBGFX/Darken.visible = isPaused
-	$MoveAboveEverything/UI.visible = isPaused
+
+	if !_isShown:
+		return
 
 	if !isPaused:
 		return
@@ -23,6 +29,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		TheSound.select()
 		hide()
+		_isShown = false
 		get_tree().paused = false
 		return
 		
@@ -31,6 +38,7 @@ func _process(delta):
 
 
 func initBeforeShow():
+	_isShown = true
 	_selectWeapons()
 	_selectWeaponItem(1)
 	_selectSubsystemItem(1)

@@ -1,6 +1,6 @@
 extends Node2D
 
-signal bossBecameActive
+signal bossBecameActive(boss)
 signal bossDied
 
 
@@ -49,7 +49,7 @@ func _process(delta):
 
 	# Activate the boss
 	if boss && bossSpawned && !bossActivated && time > levelLength + 5.0:
-		emit_signal("bossBecameActive")
+		emit_signal("bossBecameActive", boss)
 		boss.active = true
 		bossActivated = true # need this because if the boss is dead we'll crash
 

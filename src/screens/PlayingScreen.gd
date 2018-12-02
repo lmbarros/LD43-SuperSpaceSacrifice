@@ -31,6 +31,11 @@ func _onBossDied():
 	print("From PlayingScreen: Boss died!")
 
 
-func _onBossBecameActive():
-	print("From PlayingScreen: Boss active!")
 
+func _onBossBecameActive(boss):
+	print("ACTIVE")
+	TheSound.select()
+	$BossMenu.initBeforeShow(boss)
+	$BossMenu.show_modal(true)
+	get_tree().paused = true
+	Input.action_release("pause") # so that the pause menu itself doesn't unpause!

@@ -3,6 +3,8 @@ extends "res://enemies/BaseEnemy.gd"
 
 # When false, the boss is still making its entrance to scene.
 var active = false
+var label = ""
+
 
 func _process(delta):
 	._process(delta)
