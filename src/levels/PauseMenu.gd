@@ -355,9 +355,9 @@ func _updateHelp():
 		help += "          Enter/Y: Swap item with the selected cargo slot"
 
 	if _isWeaponsSelected:
-		help += "          Space/X: Man/Unman the selected weapon"
+		help += "          Space/X: Man/Unman the selected weapon (increase fire rate)"
 	elif _isSubsystemsSelected:
-		help += "          Space/X: Man/Unman the selected subsystem"
+		help += "          Space/X: Man/Unman the selected subsystem (better performance)"
 
 
 	help += ""
