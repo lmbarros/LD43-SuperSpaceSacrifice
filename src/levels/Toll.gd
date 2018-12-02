@@ -1,5 +1,11 @@
 extends Node2D
 
+func _process(delta):
+	position.x -= delta * 100
+	if position.x < -400:
+		queue_free()
+
+
 
 func _on_SacrificeWeaponAreaEntered(area):
 	# TODO: Make this random...

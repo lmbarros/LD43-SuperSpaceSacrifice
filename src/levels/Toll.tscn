@@ -40,7 +40,7 @@ extents = Vector2( 89.4474, 46.075 )
 custom_solver_bias = 0.0
 extents = Vector2( 84.1446, 56.3315 )
 
-[node name="Toll" type="Node2D"]
+[node name="Toll" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

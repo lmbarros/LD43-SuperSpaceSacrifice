@@ -4,7 +4,8 @@ extends Node2D
 var level = 1
 var length = 60 # in seconds, until the boss
 var enemySpawnPeriod = 2.5 # an enemy is spawned every this many seconds
-
+var tollGenerated = false
+var time = 0.0
 
 var nextEnemyInSecs = 0
 
@@ -16,6 +17,8 @@ func _ready():
 
 
 func _process(delta):
+	time += delta
+
 	nextEnemyInSecs -= delta
 	
 	if nextEnemyInSecs > 0.0:
@@ -26,6 +29,13 @@ func _process(delta):
 	var enemy = _getRandomEnemy()
 	enemy.position = Vector2(1300, rand_range(20, 700))
 	get_tree().current_scene.add_child(enemy)
+
+	if !tollGenerated && time > length / 2:
+		tollGenerated = true
+		var toll = TheScenario.Toll.instance()
+		toll.position.x = 1300
+		get_tree().current_scene.add_child(toll)
+
 
 
 func _getRandomEnemy():

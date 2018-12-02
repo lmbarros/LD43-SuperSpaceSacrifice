@@ -16,6 +16,11 @@ License is GPL3.
 
 ## Notes to self
 
+### Speeds
+
+* Speed of static objects (oh, well): 100 pixes/second
+
+
 ### Health (AKA Armor)
 
 * Level 0: 1
