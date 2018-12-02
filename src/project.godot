@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+TheConsts="*res://TheConsts.gd"
 TheGuns="*res://guns/TheGuns.gd"
 TheBullets="*res://bullets/TheBullets.gd"
 TheEnemies="*res://enemies/TheEnemies.gd"

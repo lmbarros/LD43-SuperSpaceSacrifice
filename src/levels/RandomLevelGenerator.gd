@@ -2,8 +2,8 @@ extends Node2D
 
 # Immutable generator properties
 var level = 1
-var length = 60 # in seconds, until the boss
-var enemySpawnPeriod = 2.5 # an enemy is spawned every this many seconds
+var length = TheConsts.BASE_LEVEL_LENGTH
+var enemySpawnPeriod = TheConsts.BASE_ENEMY_SPAWN_PERIOD
 var tollGenerated = false
 var time = 0.0
 

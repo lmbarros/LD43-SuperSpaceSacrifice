@@ -1,7 +1,7 @@
 extends Node2D
 
 func _process(delta):
-	position.x -= delta * 100
+	position.x -= delta * TheConsts.STATIC_SPEED
 	if position.x < -400:
 		queue_free()
 
