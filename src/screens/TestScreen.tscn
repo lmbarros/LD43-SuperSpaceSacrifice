@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://screens/TestScreen.gd" type="Script" id=1]
 [ext_resource path="res://bosses/SaucerBoss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/PlayerShip.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemies/SmallAsteroid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/Toll.tscn" type="PackedScene" id=5]
 
-[node name="TestScreen" type="Node2D"]
+[node name="TestScreen" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="SaucerBoss" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 488.379, 396.431 )
+position = Vector2( 1165.18, 322.571 )
 
 [node name="PlayerShip" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -19,6 +20,11 @@ position = Vector2( 230.623, 387.387 )
 
 [node name="SmallAsteroid" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 920.986, 500.437 )
+position = Vector2( 1183.26, 569.775 )
+
+[node name="Toll" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 530.352, 0 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 

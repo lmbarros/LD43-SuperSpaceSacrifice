@@ -65,6 +65,13 @@ func _onAreaEntered(area):
 	if collision_layer & area.collision_mask == 0:
 		return
 
+	if area.collision_layer & 64 > 0: # InstantKillers
+		ThePlayer.dead = true
+		return
+
+	if area.collision_layer & 128 > 0: # Tolls
+		return
+
 	match area.type:
 		"enemy":
 			ThePlayer.crashedWithEnemy(area)

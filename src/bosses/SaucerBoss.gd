@@ -2,7 +2,7 @@ extends "res://bosses/BaseBoss.gd"
 
 
 func _ready():
-	crashDamage = 1000
+	crashDamage = 1.0e10 # Effectively instant kill
 	shield = 10
 	health = 30
 

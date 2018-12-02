@@ -220,13 +220,14 @@ func getUnassignedCrew():
 func killCrew():
 	if crew == 0:
 		return
-	
+
 	if getUnassignedCrew() > 0:
 		# Kill one of the unassigned ones
 		crew -= 1
 		return
 
 	# Kill an assigned one; try the least useful first
+	crew -= 1
 	if gunBombBay && gunBombBay.manned: gunBombBay.manned = false
 	elif gunBackward && gunBackward.manned: gunBackward.manned = false
 	elif gunForward2 && gunForward2.manned: gunForward2.manned = false
