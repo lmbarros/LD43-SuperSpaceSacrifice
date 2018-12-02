@@ -305,24 +305,41 @@ func _updateInfo():
 
 # TODO
 func _manUnman():
-	if _isCargoSelected:
+	if _isWeaponsSelected:
 		pass
 	elif _isSubsystemsSelected:
 		pass
-	elif _isCargoSelected:
-		pass
 
 
 
-# TODO
 func _swapItem():
-	if _isCargoSelected:
-		pass
-	elif _isSubsystemsSelected:
-		pass
-	elif _isCargoSelected:
-		pass
+	var cargo = _getCargoByIndex(_cargoSelected)
 
+	if _isWeaponsSelected:
+		var weapon = _getWeaponByIndex(_weaponSelected)
+		if _weaponSelected != 4: # gun
+			if cargo != null && cargo.type != "gun": return
+
+		else: # bomb
+			if cargo != null && cargo.type != "bomb": return
+
+		TheSound.select()
+		_setCargoByIndex(_cargoSelected, weapon)
+		_setWeaponByIndex(_weaponSelected, cargo)
+
+	elif _isSubsystemsSelected:
+		var subsystem = _getSubsystemByIndex(_subsystemSelected)
+		if _subsystemSelected == 1 && cargo != null && cargo.type != "engine": return
+		elif _subsystemSelected == 2 && cargo != null && cargo.type != "armor": return
+		elif _subsystemSelected == 3 && cargo != null && cargo.type != "shield": return
+
+		TheSound.select()
+		_setCargoByIndex(_cargoSelected, subsystem)
+		_setSubsystemByIndex(_subsystemSelected, cargo)
+
+
+	_updateImages()
+	_updateInfoAndHelp()
 
 
 # TODO
@@ -363,3 +380,49 @@ func _updateHelp():
 	help += ""
 
 	$MoveAboveEverything/UI/Help.text = help
+
+
+
+func _getWeaponByIndex(i):
+	if i == 1: return ThePlayer.gunForward1
+	elif i == 2: return ThePlayer.gunForward2
+	elif i == 3: return ThePlayer.gunBackward
+	elif i == 4: return ThePlayer.gunBombBay
+
+
+
+func _setWeaponByIndex(i, w):
+	if i == 1: ThePlayer.gunForward1 = w
+	elif i == 2: ThePlayer.gunForward2 = w
+	elif i == 3: ThePlayer.gunBackward = w
+	elif i == 4: ThePlayer.gunBombBay = w
+
+
+
+func _getSubsystemByIndex(i):
+	if i == 1: return ThePlayer.engine
+	elif i == 2: return ThePlayer.armor
+	elif i == 3: return ThePlayer.shield
+
+
+
+func _setSubsystemByIndex(i, s):
+	if i == 1: ThePlayer.engine = s
+	elif i == 2: ThePlayer.armor = s
+	elif i == 3: ThePlayer.shield = s
+
+
+
+func _getCargoByIndex(i):
+	if i == 1: return ThePlayer.cargo1
+	elif i == 2: return ThePlayer.cargo2
+	elif i == 3: return ThePlayer.cargo3
+	elif i == 4: return ThePlayer.cargo4
+
+
+
+func _setCargoByIndex(i, c):
+	if i == 1: ThePlayer.cargo1 = c
+	elif i == 2: ThePlayer.cargo2 = c
+	elif i == 3: ThePlayer.cargo3 = c
+	elif i == 4: ThePlayer.cargo4 = c
