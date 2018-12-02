@@ -11,19 +11,23 @@ onready var Lamb = preload("res://subsystems/Lamb.gd")
 
 
 func _ready():
-	var r = rand_range(0.0, 91.0)
+	var r = rand_range(0.0, 100.0)
 
 	if r < 1.0: # Lamb
 		thing = Lamb.new()
-	elif r < 31.0: # Armor
+	elif r < 10.0: # A crew member!
+		thing = "crew"
+	elif r < 40.0: # Armor
 		thing = Armor.new(1 + randi() % 5)
-	elif r < 61.0: # Shield
+	elif r < 70.0: # Shield
 		thing = Shield.new(1 + randi() % 5)
-	else: #elif r < 91.0: # Engine
+	else: #elif r < 90.0: # Engine
 		thing = Engine.new(1 + randi() % 5)
 
-	print(thing.type.capitalize() + ": " + thing.label)
-	$Label.text = thing.type.capitalize() + ": " + thing.label
+	if typeof(thing) == TYPE_STRING:
+		$Label.text = "Crew Member"
+	else:
+		$Label.text = thing.type.capitalize() + ": " + thing.label
 
 
 func _process(delta):

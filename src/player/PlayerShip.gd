@@ -81,15 +81,23 @@ func _onAreaEntered(area):
 			area.queue_free()
 
 		"powerup":
-			if ThePlayer.cargo1 == null:
+			if typeof(area.thing) == TYPE_STRING:
+				ThePlayer.crew += 1
+				area.queue_free()
+				TheSound.powerUp()
+			elif ThePlayer.cargo1 == null:
 				ThePlayer.cargo1 = area.thing
 				area.queue_free()
+				TheSound.powerUp()
 			elif ThePlayer.cargo2 == null:
 				ThePlayer.cargo2 = area.thing
 				area.queue_free()
+				TheSound.powerUp()
 			elif ThePlayer.cargo3 == null:
 				ThePlayer.cargo3 = area.thing
 				area.queue_free()
+				TheSound.powerUp()
 			elif ThePlayer.cargo4 == null:
 				ThePlayer.cargo4 = area.thing
 				area.queue_free()
+				TheSound.powerUp()
