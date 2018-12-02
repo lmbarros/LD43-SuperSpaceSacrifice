@@ -47,13 +47,14 @@ var cargo4 = null
 
 
 # Crew size. Game over if zero.
-var crew = 1
+var crew = 0
 
 
 func init():
 	dead = false
 
 	level = TheConsts.INITIAL_LEVEL
+	crew = 1
 
 	armor = Armor.new(1)
 	shield = Shield.new(2)
