@@ -6,7 +6,7 @@
 [ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://levels/PauseMenu.shader" type="Shader" id=5]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 
 render_priority = 0
 shader = ExtResource( 5 )
@@ -41,6 +41,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="UI" type="Node2D" parent="MoveAboveEverything" index="0"]
 
+position = Vector2( 347, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -375,10 +376,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 25.0
-margin_top = 656.738
-margin_right = 1242.0
-margin_bottom = 714.738
+margin_left = -318.0
+margin_top = 656.0
+margin_right = 899.0
+margin_bottom = 714.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -438,7 +439,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="BGFX" type="ColorRect" parent="MoveAboveGame" index="0"]
 
 visible = false
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
