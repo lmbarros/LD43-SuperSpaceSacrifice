@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 1.69489
 height = 20.0
 
-[node name="MediumLaser" instance=ExtResource( 1 )]
+[node name="MediumLaserBullet" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision", "Pause", "Transform" ]

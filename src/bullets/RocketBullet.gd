@@ -1,14 +1,10 @@
 extends "res://bullets/BaseBullet.gd"
 
 
-func _ready():
-	speed = 500
+func init(pos, dir):
+	speed = 300
 	damage = 10
 	ignoresShields = true
-
-
-
-func init(pos, dir):
 	position = pos
 	velocity = dir * speed
 	rotation = dir.angle()

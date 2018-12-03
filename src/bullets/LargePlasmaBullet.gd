@@ -4,7 +4,7 @@ extends "res://bullets/BaseBullet.gd"
 
 func init(pos, dir):
 	speed = 500
-	damage = 30
+	damage = 50
 	position = pos
 	velocity = dir * speed
 	rotation = dir.angle()

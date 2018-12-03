@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon-plasma-cannon.png-96bb0ab5681dbd06e507f540ce0820a1.stex"
+path="res://.import/icon-plasma-canon.png-114edd846a49bc9ed933ea8d5d660c4f.stex"
 
 [deps]
 
-source_file="res://guns/icon-plasma-cannon.png"
-dest_files=[ "res://.import/icon-plasma-cannon.png-96bb0ab5681dbd06e507f540ce0820a1.stex" ]
+source_file="res://guns/icon-plasma-canon.png"
+dest_files=[ "res://.import/icon-plasma-canon.png-114edd846a49bc9ed933ea8d5d660c4f.stex" ]
 
 [params]
 

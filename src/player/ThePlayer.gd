@@ -65,8 +65,8 @@ func init():
 	gunForward1.manned = true
 
 	gunForward2 = TheGuns.QuickLaser.new()
-	gunBackward = TheGuns.CheapLaser.new()
-	gunBombBay = TheGuns.CheapLaser.new()
+	gunBackward = TheGuns.PlasmaCanon.new()
+	gunBombBay = TheGuns.PlasmaMachineGun.new()
 
 	adjustFireAngles()
 
