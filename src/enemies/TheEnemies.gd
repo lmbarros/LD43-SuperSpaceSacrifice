@@ -8,3 +8,5 @@ onready var SmallSaucerGold = preload("res://enemies/SmallSaucerGold.tscn")
 
 # Bosses
 onready var SaucerBoss = preload("res://bosses/SaucerBoss.tscn")
+#onready var SaucerBossSilver = preload("res://bosses/SaucerBossSilver.tscn")
+#onready var SaucerBossGold = preload("res://bosses/SaucerGold.tscn")

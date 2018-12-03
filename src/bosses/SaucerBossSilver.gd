@@ -3,9 +3,9 @@ extends "res://bosses/BaseBoss.gd"
 
 func _ready():
 	crashDamage = 1.0e10 # Effectively instant kill
-	shield = 120
+	shield = 100
 	health = 500
-	label = "The Saucer"
+	label = "The Silver Saucer"
 
 
 

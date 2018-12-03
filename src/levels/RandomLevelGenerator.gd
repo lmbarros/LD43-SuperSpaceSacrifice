@@ -42,7 +42,7 @@ func _process(delta):
 		var toll = TheScenario.Toll.instance()
 		toll.position.x = 1300
 		get_tree().current_scene.add_child(toll)
-		
+
 	# Spawn the boss
 	if !bossSpawned && time > levelLength:
 		_spawnBoss()
@@ -67,11 +67,11 @@ func _spawnEnemy():
 
 
 func _getRandomEnemy():
-	match randi() % 3:
+	match randi() % 2:
 		0: return TheEnemies.SmallAsteroid.instance()
 		1: return TheEnemies.SmallSaucer.instance()
-		2: return TheEnemies.SmallSaucerSilver.instance()
-		3: return TheEnemies.SmallSaucerGold.instance()
+		#2: return TheEnemies.SmallSaucerSilver.instance()
+		#3: return TheEnemies.SmallSaucerGold.instance()
 
 
 
