@@ -57,17 +57,20 @@ func init():
 	level = TheConsts.INITIAL_LEVEL
 	crew = 1
 
-	# armor = Armor.new(1)
-	# shield = Shield.new(2)
-	# engine = Engine.new(1)
-	# cargo1 = Lamb.new()
+	armor = null
+	shield = null
+	engine = null
+	cargo1 = null
+	cargo2 = null
+	cargo3 = null
+	cargo4 = Lamb.new()
 
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.manned = true
 
-	# gunForward2 = TheGuns.QuickLaser.new()
-	# gunBackward = TheGuns.PlasmaCanon.new()
-	# gunBombBay = TheGuns.PlasmaMachineGun.new()
+	gunForward2 = null
+	gunBackward = null
+	gunBombBay = null
 
 	adjustFireAngles()
 
