@@ -22,6 +22,13 @@ var nextEnemyInSecs = 0
 
 
 func _ready():
+	if ThePlayer.level == 2:
+		levelLength *= 1.2
+		enemySpawnPeriod * 0.8
+	elif ThePlayer.level == 3:
+		levelLength *= 1.4
+		enemySpawnPeriod * 0.6
+
 	nextEnemyInSecs = 0
 
 
@@ -29,7 +36,7 @@ func _ready():
 func _process(delta):
 	time += delta
 
-	# Spawn enemies	
+	# Spawn enemies
 	if nextEnemyInSecs < 0.0 && time < levelLength:
 		_spawnEnemy()
 		nextEnemyInSecs = enemySpawnPeriod
@@ -67,11 +74,21 @@ func _spawnEnemy():
 
 
 func _getRandomEnemy():
-	match randi() % 2:
-		0: return TheEnemies.SmallAsteroid.instance()
-		1: return TheEnemies.SmallSaucer.instance()
-		#2: return TheEnemies.SmallSaucerSilver.instance()
-		#3: return TheEnemies.SmallSaucerGold.instance()
+	if ThePlayer.level == 1:
+		var r = rand_range(0.0, 100.00)
+		if r < 50: return TheEnemies.SmallAsteroid.instance()
+		else: return TheEnemies.SmallSaucer.instance()
+	elif ThePlayer.level == 2:
+		var r = rand_range(0.0, 100.00)
+		if r < 25: return TheEnemies.SmallAsteroid.instance()
+		elif r < 75: return TheEnemies.SmallSaucer.instance()
+		else: return TheEnemies.SmallSaucerSilver.instance()
+	else:
+		var r = rand_range(0.0, 100.00)
+		if r < 10: return TheEnemies.SmallAsteroid.instance()
+		elif r < 25: return TheEnemies.SmallSaucer.instance()
+		elif r < 75: return TheEnemies.SmallSaucerSilver.instance()
+		else: return TheEnemies.SmallSaucerGold.instance()
 
 
 
