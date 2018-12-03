@@ -32,7 +32,7 @@ func _process(delta):
 		_isShown = false
 		get_tree().paused = false
 		return
-		
+
 	_handleInput()
 
 
@@ -46,6 +46,7 @@ func initBeforeShow():
 	_updateImages()
 	_updateInfo()
 	_updateHelp()
+
 
 
 func _selectWeapons():
@@ -376,6 +377,7 @@ func _swapItem():
 		TheSound.select()
 		_setCargoByIndex(_cargoSelected, weapon)
 		_setWeaponByIndex(_weaponSelected, cargo)
+		ThePlayer.adjustFireAngles()
 
 	elif _isSubsystemsSelected:
 		var subsystem = _getSubsystemByIndex(_subsystemSelected)

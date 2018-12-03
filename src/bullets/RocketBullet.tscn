@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 3.0507
 height = 17.5453
 
-[node name="RocketBullet" index="0" instance=ExtResource( 1 )]
+[node name="RocketBullet" instance=ExtResource( 1 )]
 
 position = Vector2( -0.0415764, 0 )
 script = ExtResource( 2 )

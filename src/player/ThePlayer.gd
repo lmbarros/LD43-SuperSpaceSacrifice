@@ -63,23 +63,26 @@ func init():
 
 	gunForward1 = TheGuns.CheapLaser.new()
 	gunForward1.manned = true
-	gunForward1.setFireAngleInDeg(0)
 
-	gunForward2 = TheGuns.CheapLaser.new()
-	gunForward2.setFireAngleInDeg(-45)
-
+	gunForward2 = TheGuns.QuickLaser.new()
 	gunBackward = TheGuns.CheapLaser.new()
-	gunBackward.setFireAngleInDeg(180)
-
 	gunBombBay = TheGuns.CheapLaser.new()
-	gunBombBay.setFireAngleInDeg(90)
 
+	adjustFireAngles()
+
+
+
+func adjustFireAngles():
+	if gunForward1: gunForward1.setFireAngleInDeg(0)
+	if gunForward2: gunForward2.setFireAngleInDeg(-45)
+	if gunBackward: gunBackward.setFireAngleInDeg(180)
+	if gunBombBay: gunBombBay.setFireAngleInDeg(90)
 
 
 func updateSubsystems(delta):
 	if armor != null:
 		armor.update(delta)
-	
+
 	if shield != null:
 		shield.update(delta)
 
