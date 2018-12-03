@@ -5,25 +5,25 @@ onready var baseY = position.y
 var time = 0
 var oscillationMultiplier = 2.5
 
-var attackCooldown = 2.3
+var attackCooldown = 1.2
 
 onready var shootInSecs = rand_range(attackCooldown/2, attackCooldown)
 
-onready var _gunL1 = TheGuns.CheapLaser.new()
-onready var _gunL2 = TheGuns.CheapLaser.new()
-onready var _gunL3 = TheGuns.CheapLaser.new()
-onready var _gunR1 = TheGuns.CheapLaser.new()
-onready var _gunR2 = TheGuns.CheapLaser.new()
-onready var _gunR3 = TheGuns.CheapLaser.new()
+onready var _gunL1 = TheGuns.PlasmaMachineGun.new()
+onready var _gunL2 = TheGuns.Rockets.new()
+onready var _gunL3 = TheGuns.PlasmaMachineGun.new()
+onready var _gunR1 = TheGuns.PlasmaMachineGun.new()
+onready var _gunR2 = TheGuns.Rockets.new()
+onready var _gunR3 = TheGuns.PlasmaMachineGun.new()
 
 
 
 func _ready():
 	time = rand_range(0, 2*PI)
-	crashDamage = 20
-	shield = 0
-	health = 3
-	speed = 120 # in pixels/sec
+	crashDamage = 100
+	shield = 10
+	health = 10
+	speed = 200 # in pixels/sec
 
 	_gunL1.setFireAngleInDeg(180+20)
 	_gunL2.setFireAngleInDeg(180)
@@ -53,7 +53,7 @@ func _process(delta):
 func die():
 	queue_free()
 	TheSound.mediumExplosion()
-	spawnPowerUpMaybe(0.15)
+	spawnPowerUpMaybe(0.2)
 
 
 

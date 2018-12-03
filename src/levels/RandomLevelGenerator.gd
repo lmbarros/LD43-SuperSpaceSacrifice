@@ -63,13 +63,15 @@ func _spawnEnemy():
 	var enemy = _getRandomEnemy()
 	enemy.position = Vector2(1300, rand_range(20, 700))
 	get_tree().current_scene.add_child(enemy)
-	
+
 
 
 func _getRandomEnemy():
-	match randi() % 2:
+	match randi() % 3:
 		0: return TheEnemies.SmallAsteroid.instance()
 		1: return TheEnemies.SmallSaucer.instance()
+		2: return TheEnemies.SmallSaucerSilver.instance()
+		3: return TheEnemies.SmallSaucerGold.instance()
 
 
 
