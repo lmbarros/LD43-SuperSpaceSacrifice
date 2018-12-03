@@ -53,7 +53,7 @@ func _process(delta):
 func die():
 	queue_free()
 	TheSound.mediumExplosion()
-	spawnPowerUpMaybe(0.2)
+	spawnPowerUpMaybe(0.33)
 
 
 
