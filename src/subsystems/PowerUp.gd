@@ -11,7 +11,7 @@ onready var Lamb = preload("res://subsystems/Lamb.gd")
 
 
 func _ready():
-	var r = rand_range(0.0, 100.0)
+	var r = rand_range(0.0, 140.0)
 
 	if r < 1.0: # Lamb
 		thing = Lamb.new()
@@ -21,8 +21,20 @@ func _ready():
 		thing = Armor.new(1 + randi() % 5)
 	elif r < 70.0: # Shield
 		thing = Shield.new(1 + randi() % 5)
-	else: #elif r < 90.0: # Engine
+	elif r < 90.0: # Engine
 		thing = Engine.new(1 + randi() % 5)
+	else: # Gun
+		var rr = rand_range(0.0, 100.0)
+		if rr < 7.0:
+			thing = TheGuns.PlasmaMachineGun.new()
+		elif rr < 20.0:
+			thing = TheGuns.PlasmaCanon.new()
+		elif rr < 40.0:
+			thing = TheGuns.Rockets.new()
+		elif rr < 70.0:
+			thing = TheGuns.QuickLaser.new()
+		else:
+			thing = TheGuns.CheapLaser.new()
 
 	if typeof(thing) == TYPE_STRING:
 		$Label.text = "Crew Member"

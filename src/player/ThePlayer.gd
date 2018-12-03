@@ -51,6 +51,7 @@ var crew = 0
 
 
 func init():
+	randomize()
 	dead = false
 
 	level = TheConsts.INITIAL_LEVEL
@@ -74,7 +75,7 @@ func init():
 
 func adjustFireAngles():
 	if gunForward1: gunForward1.setFireAngleInDeg(0)
-	if gunForward2: gunForward2.setFireAngleInDeg(-45)
+	if gunForward2: gunForward2.setFireAngleInDeg(0)
 	if gunBackward: gunBackward.setFireAngleInDeg(180)
 	if gunBombBay: gunBombBay.setFireAngleInDeg(90)
 
