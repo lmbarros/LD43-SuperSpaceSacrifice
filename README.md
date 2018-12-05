@@ -4,6 +4,8 @@ My entry for Ludum Dare 43; theme is "Sacrifices must be made".
 
 License is GPL3.
 
+Download executables from [the game's itch.io page](https://stackedboxes.itch.io/ld43-super-space-sacrifice).
+
 ## Credits
 
 * Engine: [Godot](http://godotengine.org) 3.0.6.
